@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../screens/auth/welcome_screen.dart';
+import './screens/routes.dart';
 
 void main() {
   // Allow only portrait mode
@@ -17,11 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Knjigaprica',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: const WelcomeScreen(),
-    );
+        title: 'Knjigaprica',
+        theme: ThemeData(
+            primarySwatch: Colors.red, scaffoldBackgroundColor: Colors.white),
+        home: const WelcomeScreen(),
+        routes: ApplicationRoutes.getRoutes());
   }
 }

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/auth/email_screen.dart';
 import '../../widgets/shared/primary_button.dart';
 import '../../widgets/shared/my_text_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
+
+  void _handleContinue(BuildContext context) {
+    Navigator.of(context).pushNamed(EmailScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         PrimaryButton(
                             text: "Prijavi se / Kreiraj nalog",
-                            onPressed: () {}),
+                            onPressed: () => _handleContinue(context)),
                         const SizedBox(
                           height: 12,
                         ),
