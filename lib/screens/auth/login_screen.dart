@@ -1,46 +1,40 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/auth/login_screen.dart';
-import '../../widgets/shared/my_text_field.dart';
+import '../../widgets/shared/password_field.dart';
 import '../../widgets/shared/primary_button.dart';
 
-class EmailScreen extends StatelessWidget {
-  EmailScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
-  static const routeName = '/auth-email';
+  static const routeName = '/login';
 
-  final _email = TextEditingController();
+  final _passwordController = TextEditingController();
 
-  void _handleAuthentication(BuildContext context) {
-    Navigator.of(context)
-        .pushNamed(LoginScreen.routeName, arguments: _email.text);
-  }
+  void _handleLogin() {}
 
-  void _handleCloseNavigation(BuildContext context) {
-    FocusScopeNode currentFocus = FocusScope.of(context);
-    if (!currentFocus.hasPrimaryFocus) {
-      currentFocus.unfocus();
-
-      Future.delayed(const Duration(milliseconds: 300)).then((_) {
-        Navigator.of(context).pop();
-      });
-    } else {
-      Navigator.of(context).pop();
-    }
+  void _handleBackNavigation(BuildContext context) {
+    Navigator.of(context).pop();
   }
 
   @override
   Widget build(BuildContext context) {
+    final email = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
           automaticallyImplyLeading: false,
+          leading: IconButton(
+              onPressed: () => _handleBackNavigation(context),
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              )),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: IconButton(
-                  onPressed: () => _handleCloseNavigation(context),
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.close,
                     color: Colors.black,
@@ -64,19 +58,24 @@ class EmailScreen extends StatelessWidget {
                 height: 48,
               ),
               const Text(
-                'Dobrodošli na Knjigapriča platformu',
+                'Prijavite se',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: 32,
+                height: 24,
               ),
-              MyTextField(
-                keyboardType: TextInputType.emailAddress,
-                onSubmitted: (_) => _handleAuthentication(context),
-                icon: const Icon(Icons.email_outlined),
-                controller: _email,
-                hint: 'Unesite vaš email',
+              Text(
+                email,
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              PasswordField(
+                controller: _passwordController,
+                hint: 'Unesite lozinku',
               ),
               const SizedBox(
                 height: 24,
@@ -84,8 +83,7 @@ class EmailScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: PrimaryButton(
-                      text: 'Nastavi',
-                      onPressed: () => _handleAuthentication(context)))
+                      text: 'Prijavi se', onPressed: _handleLogin))
             ]),
           )),
         ));
