@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../helpers/constants/color_pallete.dart';
 import '../screens/auth/welcome_screen.dart';
 import './screens/routes.dart';
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Knjigaprica',
         theme: ThemeData(
-            primarySwatch: Colors.red, scaffoldBackgroundColor: Colors.white),
+            colorScheme: ColorPallete.appColorScheme,
+            scaffoldBackgroundColor: ColorPallete.backgroundColor),
         home: const WelcomeScreen(),
         routes: ApplicationRoutes.getRoutes());
   }

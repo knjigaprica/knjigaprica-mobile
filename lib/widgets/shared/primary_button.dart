@@ -20,7 +20,7 @@ class PrimaryButton extends StatelessWidget {
         height: 56,
         child: CupertinoButton(
           onPressed: onPressed,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.primary,
           borderRadius: const BorderRadius.all(Radius.circular(84)),
           pressedOpacity: 0.9,
           child: isLoading
