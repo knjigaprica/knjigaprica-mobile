@@ -4,10 +4,19 @@ import 'package:flutter/material.dart';
 import '../../helpers/constants/color_pallete.dart';
 
 class PasswordField extends StatefulWidget {
-  final TextEditingController controller;
-  final String? hint;
+  const PasswordField(
+      {super.key,
+      this.controller,
+      this.hint,
+      this.validator,
+      this.onSaved,
+      this.helperText});
 
-  const PasswordField({super.key, required this.controller, this.hint});
+  final TextEditingController? controller;
+  final String? hint;
+  final String? helperText;
+  final String? Function(String?)? validator;
+  final void Function(String?)? onSaved;
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -26,32 +35,51 @@ class _PasswordFieldState extends State<PasswordField> {
     return Icon(_visible ? CupertinoIcons.eye : CupertinoIcons.eye_slash);
   }
 
-  InputBorder _getBorder() {
+  InputBorder _buildBorder(Color color, double width) {
     return OutlineInputBorder(
-        borderSide: const BorderSide(width: 0, color: Colors.transparent),
+        borderSide: BorderSide(width: width, color: color),
         borderRadius: BorderRadius.circular(8));
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: TextField(
+      child: TextFormField(
+        keyboardType: TextInputType.text,
+        onSaved: widget.onSaved,
         obscureText: !_visible,
         controller: widget.controller,
-        cursorColor: Colors.black,
+        validator: widget.validator,
+        cursorColor: ColorPallete.textFieldCursorColor,
         decoration: InputDecoration(
-            suffixIcon: IconButton(
-                icon: _getVisibilityIcon(),
-                onPressed: _switchVisibility,
-                splashColor: Colors.transparent),
-            suffixIconColor: ColorPallete.textFieldHintColor,
-            fillColor: ColorPallete.textFieldColor,
-            filled: true,
-            hintText: widget.hint,
-            hintStyle: const TextStyle(
-                color: ColorPallete.textFieldHintColor, fontSize: 16),
-            focusedBorder: _getBorder(),
-            enabledBorder: _getBorder()),
+          suffixIcon: IconButton(
+              icon: _getVisibilityIcon(),
+              onPressed: _switchVisibility,
+              splashColor: Colors.transparent),
+          suffixIconColor: ColorPallete.textFieldFocusedColor,
+          fillColor: MaterialStateColor.resolveWith((states) {
+            if (states.contains(MaterialState.error)) {
+              return ColorPallete.textFieldErrorBackgroundColor;
+            } else {
+              return ColorPallete.textFieldBackgroundColor;
+            }
+          }),
+          filled: true,
+          hintText: widget.hint,
+          errorStyle: const TextStyle(
+              color: ColorPallete.textFieldErrorHelperColor,
+              fontWeight: FontWeight.bold),
+          helperStyle:
+              const TextStyle(color: ColorPallete.textFieldHelperColor),
+          helperText: widget.helperText,
+          hintStyle: const TextStyle(
+              color: ColorPallete.textFieldHintColor, fontSize: 16),
+          errorBorder: _buildBorder(ColorPallete.textFieldErrorBorderColor, 2),
+          focusedBorder: _buildBorder(ColorPallete.textFieldFocusedColor, 2),
+          focusedErrorBorder:
+              _buildBorder(ColorPallete.textFieldErrorBorderColor, 2),
+          enabledBorder: _buildBorder(ColorPallete.textFieldBorderColor, 1),
+        ),
       ),
     );
   }

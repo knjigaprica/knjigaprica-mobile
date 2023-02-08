@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/auth/login_screen.dart';
 import '../../widgets/shared/my_text_field.dart';
 import '../../widgets/shared/primary_button.dart';
+import 'login_screen.dart';
 
-class EmailScreen extends StatelessWidget {
-  EmailScreen({super.key});
+class EmailScreen extends StatefulWidget {
+  const EmailScreen({super.key});
 
   static const routeName = '/auth-email';
 
-  final _email = TextEditingController();
+  @override
+  State<EmailScreen> createState() => _EmailScreenState();
+}
+
+class _EmailScreenState extends State<EmailScreen> {
+  final _form = GlobalKey<FormState>();
+  var autoValidateMode = AutovalidateMode.disabled;
+  String? _email;
 
   void _handleAuthentication(BuildContext context) {
-    Navigator.of(context)
-        .pushNamed(LoginScreen.routeName, arguments: _email.text);
+    bool isValid = _form.currentState!.validate();
+
+    if (!isValid) {
+      setState(() {
+        autoValidateMode = AutovalidateMode.onUserInteraction;
+      });
+    } else {
+      _form.currentState!.save();
+
+      Navigator.of(context).pushNamed(LoginScreen.routeName, arguments: _email);
+    }
   }
 
   void _handleCloseNavigation(BuildContext context) {
@@ -64,28 +80,46 @@ class EmailScreen extends StatelessWidget {
                 height: 48,
               ),
               const Text(
-                'Dobrodošli na Knjigapriča platformu',
+                'Unesi email',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 32,
               ),
-              MyTextField(
-                keyboardType: TextInputType.emailAddress,
-                onSubmitted: (_) => _handleAuthentication(context),
-                icon: const Icon(Icons.email_outlined),
-                controller: _email,
-                hint: 'Unesite vaš email',
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              SizedBox(
-                  width: double.infinity,
-                  child: PrimaryButton(
-                      text: 'Nastavi',
-                      onPressed: () => _handleAuthentication(context)))
+              Form(
+                  key: _form,
+                  autovalidateMode: autoValidateMode,
+                  child: Column(
+                    children: [
+                      MyTextField(
+                        validator: (value) {
+                          if (value == null ||
+                              !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                  .hasMatch(value)) {
+                            return "Neispravan email";
+                          }
+                          return null;
+                        },
+                        autofocus: true,
+                        keyboardType: TextInputType.emailAddress,
+                        onSaved: (email) {
+                          _email = email;
+                        },
+                        icon: const Icon(Icons.email_outlined),
+                        hint: 'Unesi email adresu',
+                        onFieldSubmitted: (_) => _handleAuthentication(context),
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      SizedBox(
+                          width: double.infinity,
+                          child: PrimaryButton(
+                              text: 'Nastavi',
+                              onPressed: () => _handleAuthentication(context)))
+                    ],
+                  ))
             ]),
           )),
         ));
