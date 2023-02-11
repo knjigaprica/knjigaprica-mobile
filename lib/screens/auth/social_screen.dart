@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../screens/auth/email_screen.dart';
+import '../../widgets/shared/auth_layout.dart';
+
 class SocialScreen extends StatelessWidget {
   const SocialScreen({super.key});
 
-  static const routeName = '/social-auth';
-
-  void _handleBackNavigation(BuildContext context) {
-    Navigator.of(context).pop();
-  }
+  static const routeName = '/auth-social';
 
   void _handleGoogleAuth() {}
 
   void _handleFacebookAuth() {}
 
-  void _handleEmailAuth() {}
+  void _handleEmailAuth(BuildContext context) {
+    Navigator.of(context).pushNamed(EmailScreen.routeName);
+  }
 
   Widget _buildAuthButton(
       BuildContext context, Widget icon, String label, VoidCallback onPressed) {
@@ -50,29 +51,8 @@ class SocialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          automaticallyImplyLeading: false,
-          leading: IconButton(
-              onPressed: () => _handleBackNavigation(context),
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              )),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.close,
-                    color: Colors.black,
-                  )),
-            )
-          ],
-        ),
+    return AuthLayout(
+        hasBackButton: false,
         body: Padding(
           padding: const EdgeInsets.only(top: 40),
           child: Center(
@@ -148,7 +128,7 @@ class SocialScreen extends StatelessWidget {
                     weight: 2,
                   ),
                   "Nastavi koristeći Email",
-                  _handleEmailAuth),
+                  () => _handleEmailAuth(context)),
             ]),
           )),
         ));
