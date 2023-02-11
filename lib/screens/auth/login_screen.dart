@@ -4,14 +4,31 @@ import '../../widgets/shared/auth_layout.dart';
 import '../../widgets/shared/password_field.dart';
 import '../../widgets/shared/primary_button.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   static const routeName = '/auth-login';
 
-  final _passwordController = TextEditingController();
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
 
-  void _handleLogin() {}
+class _LoginScreenState extends State<LoginScreen> {
+  final _form = GlobalKey<FormState>();
+  var autoValidateMode = AutovalidateMode.disabled;
+  String? _password;
+
+  void _handleLogin(BuildContext context) {
+    bool isValid = _form.currentState!.validate();
+
+    if (!isValid) {
+      setState(() {
+        autoValidateMode = AutovalidateMode.onUserInteraction;
+      });
+    } else {
+      _form.currentState!.save();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +65,32 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          PasswordField(
-            controller: _passwordController,
-            hint: 'Unesite lozinku',
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          SizedBox(
-              width: double.infinity,
-              child: PrimaryButton(text: 'Prijavi se', onPressed: _handleLogin))
+          Form(
+              key: _form,
+              autovalidateMode: autoValidateMode,
+              child: Column(
+                children: [
+                  PasswordField(
+                    validator: (value) => value == null || value.isEmpty
+                        ? "Morate uneti lozinku"
+                        : null,
+                    hint: 'Unesite lozinku',
+                    autofocus: true,
+                    onSaved: (password) {
+                      _password = password;
+                    },
+                    onFieldSubmitted: (_) => _handleLogin(context),
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  SizedBox(
+                      width: double.infinity,
+                      child: PrimaryButton(
+                          text: 'Prijavi se',
+                          onPressed: () => _handleLogin(context)))
+                ],
+              ))
         ]),
       )),
     ));

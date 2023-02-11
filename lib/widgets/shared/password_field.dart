@@ -10,13 +10,17 @@ class PasswordField extends StatefulWidget {
       this.hint,
       this.validator,
       this.onSaved,
-      this.helperText});
+      this.helperText,
+      this.onFieldSubmitted,
+      this.autofocus = false});
 
   final TextEditingController? controller;
   final String? hint;
   final String? helperText;
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
+  final bool autofocus;
+  final void Function(String)? onFieldSubmitted;
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -45,6 +49,8 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
+        autofocus: widget.autofocus,
+        onFieldSubmitted: widget.onFieldSubmitted,
         keyboardType: TextInputType.text,
         onSaved: widget.onSaved,
         obscureText: !_visible,
