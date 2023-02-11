@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/auth/email_screen.dart';
+import '../../screens/auth/social_screen.dart';
 import '../../widgets/shared/primary_button.dart';
 import '../../widgets/shared/my_text_button.dart';
 
@@ -8,7 +8,7 @@ class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   void _handleContinue(BuildContext context) {
-    Navigator.of(context).pushNamed(EmailScreen.routeName);
+    Navigator.of(context).pushNamed(SocialScreen.routeName);
   }
 
   @override
