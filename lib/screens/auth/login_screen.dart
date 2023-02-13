@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/auth/register_screen.dart';
 import '../../widgets/shared/auth_layout.dart';
 import '../../widgets/shared/password_field.dart';
 import '../../widgets/shared/primary_button.dart';
@@ -27,6 +28,9 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     } else {
       _form.currentState!.save();
+
+      Navigator.of(context).pushNamed(RegisterScreen.routeName,
+          arguments: ModalRoute.of(context)!.settings.arguments as String);
     }
   }
 
@@ -76,8 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         : null,
                     hint: 'Unesite lozinku',
                     autofocus: true,
-                    onSaved: (password) {
-                      _password = password;
+                    onSaved: (value) {
+                      _password = value;
                     },
                     onFieldSubmitted: (_) => _handleLogin(context),
                   ),
