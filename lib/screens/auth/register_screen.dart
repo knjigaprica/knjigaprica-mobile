@@ -5,6 +5,7 @@ import '../../widgets/shared/auth_layout.dart';
 import '../../widgets/shared/my_text_field.dart';
 import '../../widgets/shared/password_field.dart';
 import '../../widgets/shared/primary_button.dart';
+import 'register_confirmation_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -51,6 +52,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       });
     } else {
       _form.currentState!.save();
+
+      Navigator.of(context).pushNamed(RegisterConfirmationScreen.routeName,
+          arguments: ModalRoute.of(context)!.settings.arguments as String);
     }
   }
 
@@ -130,8 +134,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textAlign: TextAlign.center,
                         text: TextSpan(
                             style: TextStyle(
-                              color: Theme.of(context).colorScheme.secondary,
-                            ),
+                                color: Theme.of(context).colorScheme.secondary,
+                                height: 1.4,
+                                fontSize: 14),
                             children: [
                               const TextSpan(
                                 text: 'Kreiranjem naloga slažete se sa ',

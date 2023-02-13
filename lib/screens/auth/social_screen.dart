@@ -87,7 +87,7 @@ class SocialScreen extends StatelessWidget {
               _buildAuthButton(
                   context,
                   SvgPicture.asset("assets/svgs/facebook-icon.svg"),
-                  "Nastavi sa Google nalogom",
+                  "Nastavi sa Facebook nalogom",
                   _handleFacebookAuth),
               const SizedBox(
                 height: 16,

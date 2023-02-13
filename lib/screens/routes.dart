@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/auth/register_confirmation_screen.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../screens/auth/social_screen.dart';
 import '../../screens/auth/login_screen.dart';
@@ -11,7 +12,9 @@ class ApplicationRoutes {
       EmailScreen.routeName: (_) => const EmailScreen(),
       LoginScreen.routeName: (_) => const LoginScreen(),
       SocialScreen.routeName: (_) => const SocialScreen(),
-      RegisterScreen.routeName: (_) => const RegisterScreen()
+      RegisterScreen.routeName: (_) => const RegisterScreen(),
+      RegisterConfirmationScreen.routeName: (_) =>
+          const RegisterConfirmationScreen(),
     };
   }
 }
