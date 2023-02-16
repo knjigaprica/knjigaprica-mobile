@@ -7,6 +7,8 @@ import '../../widgets/shared/my_text_button.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
+  static const routeName = "/welcome";
+
   void _handleContinue(BuildContext context) {
     Navigator.of(context).pushNamed(SocialScreen.routeName);
   }
@@ -14,7 +16,6 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(

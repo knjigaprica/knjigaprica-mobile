@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../helpers/constants/color_pallete.dart';
-import '../screens/auth/welcome_screen.dart';
 import './screens/routes.dart';
+import 'screens/main_screen.dart';
 
 void main() {
   // Allow only portrait mode
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             colorScheme: ColorPallete.appColorScheme,
             scaffoldBackgroundColor: ColorPallete.backgroundColor),
-        home: const WelcomeScreen(),
+        home: const HomeScreen(),
         routes: ApplicationRoutes.getRoutes());
   }
 }

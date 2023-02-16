@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/auth/welcome_screen.dart';
 import '../../screens/auth/register_confirmation_screen.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../screens/auth/social_screen.dart';
@@ -15,6 +16,7 @@ class ApplicationRoutes {
       RegisterScreen.routeName: (_) => const RegisterScreen(),
       RegisterConfirmationScreen.routeName: (_) =>
           const RegisterConfirmationScreen(),
+      WelcomeScreen.routeName: (_) => const WelcomeScreen()
     };
   }
 }

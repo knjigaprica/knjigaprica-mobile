@@ -38,4 +38,7 @@ class ColorPallete {
   static const textFieldErrorIconColor = Color(0xFFF05252);
   static const textFieldErrorBorderColor = Color(0xFFF05252);
   static const textFieldErrorHelperColor = Color(0xFFE02424);
+
+  static const unselectedNavigationItem = Color(0xFFB6B6B6);
+  static const navigationTopBorder = Color(0xFFDBDCE0);
 }
