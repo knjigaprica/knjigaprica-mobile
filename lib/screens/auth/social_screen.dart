@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../screens/auth/email_screen.dart';
-import '../../widgets/shared/auth_layout.dart';
+import '../../widgets/shared/auth_template.dart';
 
 class SocialScreen extends StatelessWidget {
   const SocialScreen({super.key});
@@ -51,7 +51,7 @@ class SocialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthLayout(
+    return AuthTemplate(
         hasBackButton: false,
         body: Padding(
           padding: const EdgeInsets.only(top: 40),

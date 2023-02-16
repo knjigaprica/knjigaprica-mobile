@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../helpers/string_extensions.dart';
 import '../../helpers/constants/color_pallete.dart';
-import '../../widgets/shared/auth_layout.dart';
+import '../../widgets/shared/auth_template.dart';
 import '../../widgets/shared/primary_button.dart';
 
 class RegisterConfirmationScreen extends StatefulWidget {
@@ -58,7 +58,7 @@ class _RegisterConfirmationScreenState
   @override
   Widget build(BuildContext context) {
     final email = ModalRoute.of(context)!.settings.arguments as String;
-    return AuthLayout(
+    return AuthTemplate(
         body: Padding(
       padding: const EdgeInsets.only(top: 64),
       child: Center(

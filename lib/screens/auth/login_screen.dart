@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../screens/auth/register_screen.dart';
-import '../../widgets/shared/auth_layout.dart';
+import '../../widgets/shared/auth_template.dart';
 import '../../widgets/shared/password_field.dart';
 import '../../widgets/shared/primary_button.dart';
 
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final email = ModalRoute.of(context)!.settings.arguments as String;
-    return AuthLayout(
+    return AuthTemplate(
         body: Padding(
       padding: const EdgeInsets.only(top: 40),
       child: Center(

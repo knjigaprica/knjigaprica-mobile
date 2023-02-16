@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class AuthLayout extends StatelessWidget {
-  const AuthLayout({super.key, required this.body, this.hasBackButton = true});
+class AuthTemplate extends StatelessWidget {
+  const AuthTemplate(
+      {super.key, required this.body, this.hasBackButton = true});
 
   final Widget body;
   final bool hasBackButton;

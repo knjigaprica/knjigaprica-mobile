@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/shared/auth_layout.dart';
+import '../../widgets/shared/auth_template.dart';
 import '../../widgets/shared/my_text_field.dart';
 import '../../widgets/shared/password_field.dart';
 import '../../widgets/shared/primary_button.dart';
@@ -61,7 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     final email = ModalRoute.of(context)!.settings.arguments as String;
-    return AuthLayout(
+    return AuthTemplate(
         body: SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.only(top: 40, bottom: 16),

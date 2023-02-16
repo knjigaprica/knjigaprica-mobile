@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/shared/auth_layout.dart';
+import '../../widgets/shared/auth_template.dart';
 import '../../widgets/shared/my_text_field.dart';
 import '../../widgets/shared/primary_button.dart';
 import 'login_screen.dart';
@@ -35,7 +35,7 @@ class _EmailScreenState extends State<EmailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AuthLayout(
+    return AuthTemplate(
         body: Padding(
       padding: const EdgeInsets.only(top: 40),
       child: Center(
