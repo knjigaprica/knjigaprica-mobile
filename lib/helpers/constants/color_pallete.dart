@@ -41,4 +41,8 @@ class ColorPallete {
 
   static const unselectedNavigationItem = Color(0xFFB6B6B6);
   static const navigationTopBorder = Color(0xFFDBDCE0);
+
+  static const miniplayerBorder = Color(0xFFECECEC);
+  static const miniplayerBoxShadowColor = Color(0xFFECECEC);
+  static const miniplayerAuthorTextColor = Color(0xFF858585);
 }

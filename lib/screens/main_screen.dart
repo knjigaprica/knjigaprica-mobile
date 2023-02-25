@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/shared/main_template.dart';
+import '../../widgets/player/player_template.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MainTemplate(
-      body: Center(child: Text('Main screen')),
-    );
+    return const PlayerTemplate(
+        body: Center(
+      child: Center(child: Text('Home page')),
+    ));
   }
 }

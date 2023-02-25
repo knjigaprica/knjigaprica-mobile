@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -45,6 +44,7 @@ class Navigation extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 12, bottom: 24),
       decoration: const BoxDecoration(
+          color: Colors.white,
           border: Border(
               top: BorderSide(
                   width: 1, color: ColorPallete.navigationTopBorder))),
