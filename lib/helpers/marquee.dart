@@ -36,7 +36,6 @@ class _MarqueeState extends State<Marquee> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(scrollController.hasClients.toString());
     return ShaderMask(
       shaderCallback: (bounds) {
         return const LinearGradient(

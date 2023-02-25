@@ -18,7 +18,7 @@ class Miniplayer extends StatelessWidget {
           SizedBox(
             width: 54,
             child: Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5wB4XU0KtV_bMX0E01U64h7SBgDkpedK7Lg&usqp=CAU",
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5wB4XU0KtV_bMX0E01U64h7SBgDkpedK7Lg&usqp=CAU',
                 fit: BoxFit.cover),
           ),
           const SizedBox(
@@ -41,7 +41,7 @@ class Miniplayer extends StatelessWidget {
                     player.book != null ? player.book!.author : '',
                     style: const TextStyle(
                         fontSize: 14,
-                        color: ColorPallete.miniplayerAuthorTextColor),
+                        color: ColorPallete.playerAuthorTextColor),
                   ),
                 )
               ],

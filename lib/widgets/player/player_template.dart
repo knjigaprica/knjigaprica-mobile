@@ -86,9 +86,17 @@ class PlayerTemplate extends StatelessWidget {
                                 offset: Offset(0, 8),
                                 color: ColorPallete.miniplayerBoxShadowColor)
                           ]),
-                      child: player.isExpanded
-                          ? const Player()
-                          : const Miniplayer(),
+                      child: AnimatedSwitcher(
+                        transitionBuilder:
+                            (Widget child, Animation<double> animation) {
+                          return FadeTransition(
+                              opacity: animation, child: child);
+                        },
+                        duration: const Duration(milliseconds: 300),
+                        child: player.isExpanded
+                            ? const Player()
+                            : const Miniplayer(),
+                      ),
                     ),
                   ),
                 ),

@@ -44,5 +44,10 @@ class ColorPallete {
 
   static const miniplayerBorder = Color(0xFFECECEC);
   static const miniplayerBoxShadowColor = Color(0xFFECECEC);
-  static const miniplayerAuthorTextColor = Color(0xFF858585);
+  static const playerAuthorTextColor = Color(0xFF858585);
+  static const playerChapterTextColor = Color(0xFF858585);
+  static const playerTimeTextColor = Color(0xFFA9A9A9);
+  static const playerSliderInactiveColor = Color(0xFFE6E6E6);
+  static const playerSpeedButtonColor = Color(0xFFDBDDED);
+  static const playerChapterButtonBorderColor = Color(0xFFDCDCDC);
 }
