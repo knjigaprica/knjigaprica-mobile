@@ -70,7 +70,7 @@ class SocialScreen extends StatelessWidget {
               ),
               const Text(
                 'Dobrodošli',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -106,7 +106,7 @@ class SocialScreen extends StatelessWidget {
                     'ili',
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.secondary,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(
                     width: 12,

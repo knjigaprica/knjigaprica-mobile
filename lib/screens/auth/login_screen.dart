@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           const Text(
             'Prijavite se',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
             textAlign: TextAlign.center,
           ),
           const SizedBox(

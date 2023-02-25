@@ -20,7 +20,7 @@ class Player extends StatelessWidget {
           splashFactory: NoSplash.splashFactory,
           elevation: 0,
           textStyle:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
       onPressed: () {},
       child: const Text('Brzina 1x'),
     );
@@ -59,7 +59,7 @@ class Player extends StatelessWidget {
           style: TextStyle(
               fontSize: 16,
               letterSpacing: 0.2,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
               color: ColorPallete.secondaryColor),
         ),
         icon: const Icon(CupertinoIcons.list_bullet),
@@ -121,7 +121,7 @@ class Player extends StatelessWidget {
                   child: Text(
                 player.book != null ? player.book!.title : '',
                 style:
-                    const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                    const TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
               )),
             ),
             const Expanded(
@@ -134,7 +134,7 @@ class Player extends StatelessWidget {
                   child: Text(player.book != null ? player.book!.author : '',
                       style: const TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                           color: ColorPallete.playerAuthorTextColor))),
             ),
             const Expanded(
@@ -146,7 +146,7 @@ class Player extends StatelessWidget {
               child: Text('Poglavlje 2',
                   style: TextStyle(
                       fontSize: 17,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                       color: ColorPallete.playerChapterTextColor)),
             ),
             const Expanded(
@@ -161,7 +161,7 @@ class Player extends StatelessWidget {
                     '1:32',
                     style: TextStyle(
                         color: ColorPallete.playerTimeTextColor,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   Expanded(
                     child: SliderTheme(
@@ -181,7 +181,7 @@ class Player extends StatelessWidget {
                     '9:20',
                     style: TextStyle(
                         color: ColorPallete.playerTimeTextColor,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),

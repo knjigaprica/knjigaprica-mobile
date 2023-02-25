@@ -40,7 +40,7 @@ class WelcomeScreen extends StatelessWidget {
                     const Text(
                       'Slušaj svoje omiljene knjige, bilo kada, bilo gde.',
                       style:
-                          TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 36, fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(
                       height: 24,

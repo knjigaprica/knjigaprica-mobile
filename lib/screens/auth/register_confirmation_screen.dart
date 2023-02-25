@@ -87,7 +87,7 @@ class _RegisterConfirmationScreenState
                     ),
                     TextSpan(
                         text: email,
-                        style: const TextStyle(fontWeight: FontWeight.bold)),
+                        style: const TextStyle(fontWeight: FontWeight.w600)),
                   ])),
           const SizedBox(
             height: 54,

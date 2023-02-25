@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Knjigaprica',
         theme: ThemeData(
+            fontFamily: Platform.isAndroid ? 'Roboto' : 'SF Pro Display',
             colorScheme: ColorPallete.appColorScheme,
             scaffoldBackgroundColor: ColorPallete.backgroundColor),
         home: const HomeScreen(),

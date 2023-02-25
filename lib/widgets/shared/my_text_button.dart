@@ -21,7 +21,8 @@ class MyTextButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(color: Colors.black, fontSize: 16),
+          style: const TextStyle(
+              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600),
         ));
   }
 }

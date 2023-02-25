@@ -74,7 +74,7 @@ class _PasswordFieldState extends State<PasswordField> {
           hintText: widget.hint,
           errorStyle: const TextStyle(
               color: ColorPallete.textFieldErrorHelperColor,
-              fontWeight: FontWeight.bold),
+              fontWeight: FontWeight.w600),
           helperStyle:
               const TextStyle(color: ColorPallete.textFieldHelperColor),
           helperText: widget.helperText,

@@ -71,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(children: [
             const Text(
               'Kreiraj nalog',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
             ),
             const SizedBox(

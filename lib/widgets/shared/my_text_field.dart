@@ -88,7 +88,7 @@ class _MyTextFieldState extends State<MyTextField> {
               hintText: widget.hint,
               errorStyle: const TextStyle(
                   color: ColorPallete.textFieldErrorHelperColor,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.w600),
               helperText: widget.helperText,
               helperStyle:
                   const TextStyle(color: ColorPallete.textFieldHelperColor),

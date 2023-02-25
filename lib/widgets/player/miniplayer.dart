@@ -33,7 +33,7 @@ class Miniplayer extends StatelessWidget {
                   child: Text(
                     player.book != null ? player.book!.title : '',
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Marquee(

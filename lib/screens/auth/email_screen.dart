@@ -53,7 +53,7 @@ class _EmailScreenState extends State<EmailScreen> {
           ),
           const Text(
             'Unesi email',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
             textAlign: TextAlign.center,
           ),
           const SizedBox(
