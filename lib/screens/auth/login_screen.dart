@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   PasswordField(
                     validator: (value) => value == null || value.isEmpty
-                        ? "Morate uneti lozinku"
+                        ? 'Morate uneti lozinku'
                         : null,
                     hint: 'Unesite lozinku',
                     autofocus: true,

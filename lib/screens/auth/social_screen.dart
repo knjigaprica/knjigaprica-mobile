@@ -69,7 +69,7 @@ class SocialScreen extends StatelessWidget {
                 height: 48,
               ),
               const Text(
-                "Dobrodošli",
+                'Dobrodošli',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
@@ -78,16 +78,16 @@ class SocialScreen extends StatelessWidget {
               ),
               _buildAuthButton(
                   context,
-                  SvgPicture.asset("assets/svgs/google-icon.svg"),
-                  "Nastavi sa Google nalogom",
+                  SvgPicture.asset('assets/svgs/google-icon.svg'),
+                  'Nastavi sa Google nalogom',
                   _handleGoogleAuth),
               const SizedBox(
                 height: 8,
               ),
               _buildAuthButton(
                   context,
-                  SvgPicture.asset("assets/svgs/facebook-icon.svg"),
-                  "Nastavi sa Facebook nalogom",
+                  SvgPicture.asset('assets/svgs/facebook-icon.svg'),
+                  'Nastavi sa Facebook nalogom',
                   _handleFacebookAuth),
               const SizedBox(
                 height: 16,
@@ -127,7 +127,7 @@ class SocialScreen extends StatelessWidget {
                     Icons.email_outlined,
                     weight: 2,
                   ),
-                  "Nastavi koristeći Email",
+                  'Nastavi koristeći Email',
                   () => _handleEmailAuth(context)),
             ]),
           )),

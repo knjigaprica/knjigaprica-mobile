@@ -7,7 +7,7 @@ import '../../widgets/shared/my_text_button.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
-  static const routeName = "/welcome";
+  static const routeName = '/welcome';
 
   void _handleContinue(BuildContext context) {
     Navigator.of(context).pushNamed(SocialScreen.routeName);
@@ -38,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const Text(
-                      "Slušaj svoje omiljene knjige, bilo kada, bilo gde.",
+                      'Slušaj svoje omiljene knjige, bilo kada, bilo gde.',
                       style:
                           TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                     ),
@@ -46,14 +46,14 @@ class WelcomeScreen extends StatelessWidget {
                       height: 24,
                     ),
                     const Text(
-                      "Knjigapriča je prva online platforma za audio knjige na srpskom jeziku.",
+                      'Knjigapriča je prva online platforma za audio knjige na srpskom jeziku.',
                       style: TextStyle(fontSize: 16),
                     ),
                     const SizedBox(
                       height: 34,
                     ),
                     PrimaryButton(
-                        text: "Prijavi se / Kreiraj nalog",
+                        text: 'Prijavi se / Kreiraj nalog',
                         onPressed: () => _handleContinue(context)),
                     const SizedBox(
                       height: 12,

@@ -54,22 +54,22 @@ class Navigation extends StatelessWidget {
           children: [
             _buildNavigationItem(
                 Icons.home_outlined,
-                "Početna",
+                'Početna',
                 currentNavigation == NavigationItem.home,
                 () => switchNavigation(NavigationItem.home)),
             _buildNavigationItem(
                 Icons.search,
-                "Pretraži",
+                'Pretraži',
                 currentNavigation == NavigationItem.search,
                 () => switchNavigation(NavigationItem.search)),
             _buildNavigationItem(
                 Icons.import_contacts_outlined,
-                "Moje knjige",
+                'Moje knjige',
                 currentNavigation == NavigationItem.library,
                 () => switchNavigation(NavigationItem.library)),
             _buildNavigationItem(
                 Icons.account_circle_outlined,
-                "Profil",
+                'Profil',
                 currentNavigation == NavigationItem.profile,
                 () => switchNavigation(NavigationItem.profile))
           ]),

@@ -9,7 +9,7 @@ class AuthTemplate extends StatelessWidget {
 
   void _handleClose(BuildContext context) {
     Navigator.of(context)
-        .popUntil((route) => !route.settings.name!.startsWith("/auth"));
+        .popUntil((route) => !route.settings.name!.startsWith('/auth'));
   }
 
   void _handleBack(BuildContext context) {

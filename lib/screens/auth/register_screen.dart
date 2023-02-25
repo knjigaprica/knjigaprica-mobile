@@ -92,7 +92,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     MyTextField(
                       validator: (value) => value == null || value.isEmpty
-                          ? "Obavezno polje"
+                          ? 'Obavezno polje'
                           : null,
                       onSaved: (value) {
                         _firstName = value;
@@ -104,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     MyTextField(
                       validator: (value) => value == null || value.isEmpty
-                          ? "Obavezno polje"
+                          ? 'Obavezno polje'
                           : null,
                       keyboardType: TextInputType.emailAddress,
                       onSaved: (value) {
