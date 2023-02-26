@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
             fontFamily: Platform.isAndroid ? 'Roboto' : 'SF Pro Display',
             colorScheme: ColorPallete.appColorScheme,
             scaffoldBackgroundColor: ColorPallete.backgroundColor),
-        home: const HomeScreen(),
+        home: const MainScreen(),
         routes: ApplicationRoutes.getRoutes());
   }
 }
