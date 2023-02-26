@@ -6,6 +6,9 @@ class ColorPallete {
   static const errorColor = Color(0xFFE02424);
   static const backgroundColor = Colors.white;
 
+  static const backgroundGradientColor1 = Color(0xFF080415);
+  static const backgroundGradientColor2 = Color(0xFF1E153A);
+
   static const appColorScheme = ColorScheme(
     brightness: Brightness.light,
     primary: ColorPallete.primaryColor,
@@ -51,4 +54,7 @@ class ColorPallete {
   static const playerSpeedButtonColor = Color(0xFFDBDDED);
   static const playerChapterButtonBorderColor = Color(0xFFDCDCDC);
   static const playerSpeedCheckIconColor = Color(0xFF27AE60);
+
+  static const homeScreenWelcomeSectionDividerColor =
+      Color.fromARGB(255, 67, 58, 97);
 }
