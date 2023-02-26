@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:knjigaprica/widgets/player/player_chapters.dart';
 import 'package:provider/provider.dart';
 
 import '../../helpers/constants/color_pallete.dart';
@@ -9,88 +10,6 @@ import '../../widgets/player/player_speed.dart';
 
 class Player extends StatelessWidget {
   const Player({super.key});
-
-  Widget _buildSpeedButton(
-      BuildContext context, PlayerProvider playerProvider) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          backgroundColor: ColorPallete.playerSpeedButtonColor,
-          foregroundColor: ColorPallete.secondaryColor,
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-          shadowColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-          elevation: 0,
-          textStyle:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-      onPressed: () {
-        showModalBottomSheet(
-          barrierColor: const Color.fromARGB(85, 0, 0, 0),
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16), topRight: Radius.circular(16))),
-          context: context,
-          isScrollControlled: true,
-          builder: (context) => ListenableProvider.value(
-            value: playerProvider,
-            child: const PlayerSpeed(),
-          ),
-        );
-      },
-      child: const Text('Brzina 1x'),
-    );
-  }
-
-  Widget _buildPlayButton() {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          shape: const CircleBorder(),
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          splashFactory: NoSplash.splashFactory,
-          elevation: 0,
-          shadowColor: Colors.transparent),
-      onPressed: () {},
-      child: const Icon(
-        Icons.play_arrow,
-        size: 40,
-      ),
-    );
-  }
-
-  Widget _buildChapterButton() {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          boxShadow: const [
-            BoxShadow(
-                blurRadius: 8,
-                offset: Offset(0, 8),
-                color: ColorPallete.miniplayerBoxShadowColor)
-          ]),
-      child: ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(
-            elevation: 0,
-            shadowColor: Colors.transparent,
-            splashFactory: NoSplash.splashFactory,
-            backgroundColor: Colors.white,
-            foregroundColor: ColorPallete.secondaryColor,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100),
-                side: const BorderSide(
-                    color: ColorPallete.playerChapterButtonBorderColor))),
-        onPressed: () {},
-        label: const Text(
-          'Poglavlja',
-          style: TextStyle(
-              fontSize: 16, letterSpacing: 0.2, fontWeight: FontWeight.w500),
-        ),
-        icon: const Icon(CupertinoIcons.list_bullet),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -211,9 +130,9 @@ class Player extends StatelessWidget {
               flex: 4,
               child: SizedBox(),
             ),
-            Expanded(
+            const Expanded(
               flex: 6,
-              child: _buildSpeedButton(context, player),
+              child: _SpeedButton(),
             ),
             const Expanded(
               flex: 4,
@@ -237,7 +156,20 @@ class Player extends StatelessWidget {
                       iconSize: 40,
                     ),
                   ),
-                  Expanded(child: _buildPlayButton()),
+                  Expanded(
+                      child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        splashFactory: NoSplash.splashFactory,
+                        elevation: 0,
+                        shadowColor: Colors.transparent),
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.play_arrow,
+                      size: 40,
+                    ),
+                  )),
                   Expanded(
                     child: IconButton(
                       onPressed: () {},
@@ -259,9 +191,9 @@ class Player extends StatelessWidget {
               flex: 5,
               child: SizedBox(),
             ),
-            Expanded(
+            const Expanded(
               flex: 8,
-              child: _buildChapterButton(),
+              child: _ChaptersButton(),
             ),
             const Expanded(
               flex: 4,
@@ -269,5 +201,99 @@ class Player extends StatelessWidget {
             ),
           ],
         ));
+  }
+}
+
+class _SpeedButton extends StatelessWidget {
+  const _SpeedButton();
+
+  void _openSpeedSheet(BuildContext context, PlayerProvider player) {
+    showModalBottomSheet(
+      barrierColor: const Color.fromARGB(85, 0, 0, 0),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16), topRight: Radius.circular(16))),
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => ListenableProvider.value(
+        value: player,
+        child: const PlayerSpeed(),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var player = Provider.of<PlayerProvider>(context, listen: false);
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          backgroundColor: ColorPallete.playerSpeedButtonColor,
+          foregroundColor: ColorPallete.secondaryColor,
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          shadowColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory,
+          elevation: 0,
+          textStyle:
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+      onPressed: () => _openSpeedSheet(context, player),
+      child: const Text('Brzina 1x'),
+    );
+  }
+}
+
+class _ChaptersButton extends StatelessWidget {
+  const _ChaptersButton();
+
+  void _openChaptersSheet(BuildContext context, PlayerProvider player) {
+    showModalBottomSheet(
+      barrierColor: const Color.fromARGB(85, 0, 0, 0),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16), topRight: Radius.circular(16))),
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => ListenableProvider.value(
+        value: player,
+        child: const PlayerChapters(),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var player = Provider.of<PlayerProvider>(context, listen: false);
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: const [
+            BoxShadow(
+                blurRadius: 8,
+                offset: Offset(0, 8),
+                color: ColorPallete.miniplayerBoxShadowColor)
+          ]),
+      child: ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+            elevation: 0,
+            shadowColor: Colors.transparent,
+            splashFactory: NoSplash.splashFactory,
+            backgroundColor: Colors.white,
+            foregroundColor: ColorPallete.secondaryColor,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+                side: const BorderSide(
+                    color: ColorPallete.playerChapterButtonBorderColor))),
+        onPressed: () => _openChaptersSheet(context, player),
+        label: const Text(
+          'Poglavlja',
+          style: TextStyle(
+              fontSize: 16, letterSpacing: 0.2, fontWeight: FontWeight.w500),
+        ),
+        icon: const Icon(CupertinoIcons.list_bullet),
+      ),
+    );
   }
 }
