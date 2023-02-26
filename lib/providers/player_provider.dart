@@ -13,6 +13,7 @@ class PlayerProvider with ChangeNotifier {
   PlayerState _state = PlayerState.collapsed;
   PlayerBookDetails? _book =
       const PlayerBookDetails(title: 'Tajna Sreće', author: 'Zigfrud Vitver');
+  double _speed = 1;
 
   PlayerState get state {
     return _state;
@@ -24,6 +25,10 @@ class PlayerProvider with ChangeNotifier {
 
   PlayerBookDetails? get book {
     return _book;
+  }
+
+  double get speed {
+    return _speed;
   }
 
   void expand() {
@@ -42,6 +47,11 @@ class PlayerProvider with ChangeNotifier {
     if (_state == PlayerState.closed) {
       _state = PlayerState.collapsed;
     }
+    notifyListeners();
+  }
+
+  void setSpeed(double speed) {
+    _speed = speed;
     notifyListeners();
   }
 

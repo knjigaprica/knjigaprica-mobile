@@ -50,4 +50,5 @@ class ColorPallete {
   static const playerSliderInactiveColor = Color(0xFFE6E6E6);
   static const playerSpeedButtonColor = Color(0xFFDBDDED);
   static const playerChapterButtonBorderColor = Color(0xFFDCDCDC);
+  static const playerSpeedCheckIconColor = Color(0xFF27AE60);
 }

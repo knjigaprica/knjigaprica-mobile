@@ -5,11 +5,13 @@ import 'package:provider/provider.dart';
 import '../../helpers/constants/color_pallete.dart';
 import '../../providers/player_provider.dart';
 import '../../helpers/marquee.dart';
+import '../../widgets/player/player_speed.dart';
 
 class Player extends StatelessWidget {
   const Player({super.key});
 
-  Widget _buildSpeedButton() {
+  Widget _buildSpeedButton(
+      BuildContext context, PlayerProvider playerProvider) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -21,7 +23,20 @@ class Player extends StatelessWidget {
           elevation: 0,
           textStyle:
               const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-      onPressed: () {},
+      onPressed: () {
+        showModalBottomSheet(
+          barrierColor: const Color.fromARGB(85, 0, 0, 0),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16), topRight: Radius.circular(16))),
+          context: context,
+          isScrollControlled: true,
+          builder: (context) => ListenableProvider.value(
+            value: playerProvider,
+            child: const PlayerSpeed(),
+          ),
+        );
+      },
       child: const Text('Brzina 1x'),
     );
   }
@@ -192,7 +207,7 @@ class Player extends StatelessWidget {
             ),
             Expanded(
               flex: 6,
-              child: _buildSpeedButton(),
+              child: _buildSpeedButton(context, player),
             ),
             const Expanded(
               flex: 4,
