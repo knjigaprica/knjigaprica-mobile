@@ -42,46 +42,52 @@ class Player extends StatelessWidget {
   }
 
   Widget _buildPlayButton() {
-    return SizedBox(
-        width: 64,
-        height: 64,
-        child: FloatingActionButton(
-          onPressed: () {},
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          shape: const CircleBorder(),
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          splashFactory: NoSplash.splashFactory,
           elevation: 0,
-          splashColor: Colors.transparent,
-          highlightElevation: 0,
-          backgroundColor: ColorPallete.primaryColor,
-          child: const Icon(
-            Icons.play_arrow,
-            size: 40,
-          ),
-        ));
+          shadowColor: Colors.transparent),
+      onPressed: () {},
+      child: const Icon(
+        Icons.play_arrow,
+        size: 40,
+      ),
+    );
   }
 
   Widget _buildChapterButton() {
-    return SizedBox(
-      height: 60,
-      child: FloatingActionButton.extended(
-        extendedPadding: const EdgeInsets.symmetric(horizontal: 20),
-        elevation: 6,
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: const [
+            BoxShadow(
+                blurRadius: 8,
+                offset: Offset(0, 8),
+                color: ColorPallete.miniplayerBoxShadowColor)
+          ]),
+      child: ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+            elevation: 0,
+            shadowColor: Colors.transparent,
+            splashFactory: NoSplash.splashFactory,
+            backgroundColor: Colors.white,
+            foregroundColor: ColorPallete.secondaryColor,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+                side: const BorderSide(
+                    color: ColorPallete.playerChapterButtonBorderColor))),
         onPressed: () {},
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100),
-            side: const BorderSide(
-                width: 1, color: ColorPallete.playerChapterButtonBorderColor)),
         label: const Text(
           'Poglavlja',
           style: TextStyle(
-              fontSize: 16,
-              letterSpacing: 0.2,
-              fontWeight: FontWeight.w500,
-              color: ColorPallete.secondaryColor),
+              fontSize: 16, letterSpacing: 0.2, fontWeight: FontWeight.w500),
         ),
         icon: const Icon(CupertinoIcons.list_bullet),
-        splashColor: Colors.transparent,
-        highlightElevation: 6,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
       ),
     );
   }

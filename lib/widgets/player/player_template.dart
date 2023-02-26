@@ -17,17 +17,6 @@ class PlayerTemplate extends StatelessWidget {
 
   final Widget body;
 
-  Offset _getPlayerOffset(PlayerState playerState) {
-    switch (playerState) {
-      case PlayerState.expanded:
-        return const Offset(0, 0);
-      case PlayerState.collapsed:
-        return const Offset(0, -0.3);
-      case PlayerState.closed:
-        return const Offset(0, 1);
-    }
-  }
-
   double _getPlayerWidth(BuildContext context) {
     double width = MediaQuery.of(context).size.width * 0.7;
     return min(width, maxPlayerWidth);
@@ -49,55 +38,37 @@ class PlayerTemplate extends StatelessWidget {
             body: Stack(alignment: Alignment.bottomCenter, children: [
               body,
               Consumer<PlayerProvider>(
-                builder: (context, player, child) => AnimatedSlide(
-                  curve: Curves.easeInOutBack,
-                  offset: _getPlayerOffset(player.state),
-                  duration: const Duration(milliseconds: 300),
-                  child: GestureDetector(
-                    onVerticalDragEnd: (details) {
-                      if (details.primaryVelocity! > 0) {
-                        if (player.isExpanded) {
-                          player.collapse();
-                        } else {
-                          player.close();
-                        }
-                      } else {
-                        if (player.state == PlayerState.collapsed) {
-                          player.expand();
-                        }
+                builder: (context, player, child) => GestureDetector(
+                  onVerticalDragEnd: (details) {
+                    if (details.primaryVelocity! > 0) {
+                      if (player.isExpanded) {
+                        player.collapse();
                       }
-                    },
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 400),
-                      width: player.isExpanded
-                          ? MediaQuery.of(context).size.width
-                          : _getPlayerWidth(context),
-                      height: player.isExpanded
-                          ? MediaQuery.of(context).size.height
-                          : 74,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1, color: ColorPallete.miniplayerBorder),
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          boxShadow: const [
-                            BoxShadow(
-                                blurRadius: 8,
-                                offset: Offset(0, 8),
-                                color: ColorPallete.miniplayerBoxShadowColor)
-                          ]),
-                      child: AnimatedSwitcher(
-                        transitionBuilder:
-                            (Widget child, Animation<double> animation) {
-                          return FadeTransition(
-                              opacity: animation, child: child);
-                        },
-                        duration: const Duration(milliseconds: 300),
-                        child: player.isExpanded
-                            ? const Player()
-                            : const Miniplayer(),
-                      ),
-                    ),
+                    } else if (!player.isExpanded) {
+                      player.expand();
+                    }
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: player.isExpanded ? 0 : 20),
+                    width: player.isExpanded
+                        ? MediaQuery.of(context).size.width
+                        : _getPlayerWidth(context),
+                    height: player.isExpanded
+                        ? MediaQuery.of(context).size.height
+                        : 74,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 1, color: ColorPallete.miniplayerBorder),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: const [
+                          BoxShadow(
+                              blurRadius: 8,
+                              offset: Offset(0, 8),
+                              color: ColorPallete.miniplayerBoxShadowColor)
+                        ]),
+                    child:
+                        player.isExpanded ? const Player() : const Miniplayer(),
                   ),
                 ),
               )

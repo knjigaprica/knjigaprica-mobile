@@ -7,20 +7,14 @@ class PlayerBookDetails {
   const PlayerBookDetails({required this.title, required this.author});
 }
 
-enum PlayerState { expanded, collapsed, closed }
-
 class PlayerProvider with ChangeNotifier {
-  PlayerState _state = PlayerState.collapsed;
+  bool _isExpanded = false;
   PlayerBookDetails? _book =
       const PlayerBookDetails(title: 'Tajna Sreće', author: 'Zigfrud Vitver');
   double _speed = 1;
 
-  PlayerState get state {
-    return _state;
-  }
-
   bool get isExpanded {
-    return _state == PlayerState.expanded;
+    return _isExpanded;
   }
 
   PlayerBookDetails? get book {
@@ -32,32 +26,22 @@ class PlayerProvider with ChangeNotifier {
   }
 
   void expand() {
-    _state = PlayerState.expanded;
+    _isExpanded = true;
     notifyListeners();
   }
 
   void collapse() {
-    _state = PlayerState.collapsed;
+    _isExpanded = false;
     notifyListeners();
   }
 
   void setBook({required String title, required String author}) {
     _book = PlayerBookDetails(title: title, author: author);
-
-    if (_state == PlayerState.closed) {
-      _state = PlayerState.collapsed;
-    }
     notifyListeners();
   }
 
   void setSpeed(double speed) {
     _speed = speed;
-    notifyListeners();
-  }
-
-  void close() {
-    _book = null;
-    _state = PlayerState.closed;
     notifyListeners();
   }
 }
