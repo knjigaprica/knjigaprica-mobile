@@ -60,7 +60,9 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     MyTextButton(
                       text: 'Isprobaj besplatno',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                     ),
                   ],
                 ),
