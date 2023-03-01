@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/home/data_section.dart';
 import '../../data/mocks.dart';
 import '../../helpers/constants/color_pallete.dart';
 
@@ -10,20 +11,9 @@ class BookList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 24),
-          child: Text(
-            title,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-          ),
-        ),
-        const SizedBox(
-          height: 24,
-        ),
-        SingleChildScrollView(
+    return DataSection(
+        title: title,
+        child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -42,9 +32,7 @@ class BookList extends StatelessWidget {
                       )
                     ]))
               ],
-            ))
-      ],
-    );
+            )));
   }
 }
 

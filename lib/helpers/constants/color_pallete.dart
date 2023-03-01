@@ -58,4 +58,5 @@ class ColorPallete {
   static const homeScreenWelcomeSectionDividerColor =
       Color.fromARGB(255, 67, 58, 97);
   static const homeScreenBookAuthorColor = Color(0xFF8D8A95);
+  static const homeScreenGenreColor = Color(0xFFEEEEFC);
 }
