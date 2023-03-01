@@ -17,7 +17,15 @@ class HomeTemplate extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const BookList(title: 'Najnovije'),
+          BookList(
+            title: 'Najnovije',
+            books: DataMock.homeScreenNewestBooks
+                .map((book) => BookListModel(
+                    title: book.title,
+                    author: book.author,
+                    imageUrl: book.imageUrl))
+                .toList(),
+          ),
           const SizedBox(
             height: 40,
           ),

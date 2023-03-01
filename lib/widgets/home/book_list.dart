@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/home/data_section.dart';
-import '../../data/mocks.dart';
 import '../../helpers/constants/color_pallete.dart';
 
+class BookListModel {
+  final String title;
+  final String author;
+  final String imageUrl;
+
+  const BookListModel(
+      {required this.title, required this.author, required this.imageUrl});
+}
+
 class BookList extends StatelessWidget {
-  const BookList({super.key, required this.title});
+  const BookList({super.key, required this.title, this.books = const []});
 
   final String title;
+  final List<BookListModel> books;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +31,7 @@ class BookList extends StatelessWidget {
                 const SizedBox(
                   width: 24,
                 ),
-                ...DataMock.homeScreenNewestBooks.map((book) => Row(children: [
+                ...books.map((book) => Row(children: [
                       _Book(
                           title: book.title,
                           author: book.author,
