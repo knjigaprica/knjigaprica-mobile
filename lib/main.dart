@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../helpers/constants/color_pallete.dart';
-import './screens/routes.dart';
-import 'screens/main_screen.dart';
+import '../../shared/main/main_template.dart';
+import 'routing/routes.dart';
+import 'utils/constants/color_pallete.dart';
 
 void main() {
   // Allow only portrait mode
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
             fontFamily: Platform.isAndroid ? 'Roboto' : 'SF Pro Display',
             colorScheme: ColorPallete.appColorScheme,
             scaffoldBackgroundColor: ColorPallete.backgroundColor),
-        home: const MainScreen(),
+        home: const MainTemplate(),
         routes: ApplicationRoutes.getRoutes());
   }
 }

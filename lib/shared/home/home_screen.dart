@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+import '../../data/mocks.dart';
+import 'book_list.dart';
+import 'genres_list.dart';
+import 'welcome_section.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const WelcomeSection(),
+          const SizedBox(
+            height: 40,
+          ),
+          BookList(
+            title: 'Najnovije',
+            books: DataMock.homeScreenNewestBooks
+                .map((book) => BookListModel(
+                    title: book.title,
+                    author: book.author,
+                    imageUrl: book.imageUrl))
+                .toList(),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          GenresList(
+              title: 'Žanrovi',
+              genres: DataMock.homeScreenGenres
+                  .map((genre) =>
+                      GenreListModel(name: genre.name, icon: genre.icon))
+                  .toList()),
+          const SizedBox(
+            height: 1000,
+          ),
+        ],
+      ),
+    );
+  }
+}
