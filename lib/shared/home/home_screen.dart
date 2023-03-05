@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data/mocks.dart';
-import 'book_list.dart';
-import 'genres_list.dart';
+import 'popular_books_controller.dart';
 import 'welcome_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,32 +10,22 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const WelcomeSection(),
           const SizedBox(
             height: 40,
           ),
-          BookList(
-            title: 'Najnovije',
-            books: DataMock.homeScreenNewestBooks
-                .map((book) => BookListModel(
-                    title: book.title,
-                    author: book.author,
-                    imageUrl: book.imageUrl))
-                .toList(),
-          ),
+          PopularBooksController(),
           const SizedBox(
             height: 40,
           ),
-          GenresList(
-              title: 'Žanrovi',
-              genres: DataMock.homeScreenGenres
-                  .map((genre) =>
-                      GenreListModel(name: genre.name, icon: genre.icon))
-                  .toList()),
-          const SizedBox(
-            height: 1000,
-          ),
+          // GenresList(
+          //     title: 'Žanrovi',
+          //     genres: DataMock.homeScreenGenres
+          //         .map((genre) =>
+          //             GenreListModel(name: genre.name, icon: genre.icon))
+          //         .toList()),
         ],
       ),
     );

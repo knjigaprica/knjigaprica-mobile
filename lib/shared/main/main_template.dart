@@ -15,17 +15,15 @@ class MainTemplate extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => PlayerProvider(),
       child: NavigationTemplate(body: PlayerTemplate(
-        body: Center(
-          child: Consumer<NavigationProvider>(
-            builder: (context, navigation, child) {
-              switch (navigation.current) {
-                case NavigationItem.home:
-                  return const HomeScreen();
-                default:
-                  return const Placeholder();
-              }
-            },
-          ),
+        body: Consumer<NavigationProvider>(
+          builder: (context, navigation, child) {
+            switch (navigation.current) {
+              case NavigationItem.home:
+                return const HomeScreen();
+              default:
+                return const Placeholder();
+            }
+          },
         ),
       )),
     );
