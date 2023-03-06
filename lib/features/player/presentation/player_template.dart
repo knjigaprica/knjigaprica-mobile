@@ -23,7 +23,7 @@ class PlayerTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: Alignment.bottomCenter, children: [
-      body,
+      SizedBox(height: double.infinity, child: body),
       Consumer<PlayerProvider>(
         builder: (context, player, child) => GestureDetector(
           onVerticalDragEnd: (details) {

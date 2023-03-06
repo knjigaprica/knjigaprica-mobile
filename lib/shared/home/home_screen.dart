@@ -22,9 +22,6 @@ class HomeScreen extends StatelessWidget {
             height: 40,
           ),
           GenresController(),
-          const SizedBox(
-            height: 500,
-          ),
         ],
       ),
     );
