@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'genres_controller.dart';
 import 'popular_books_controller.dart';
 import 'welcome_section.dart';
 
@@ -20,12 +21,10 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          // GenresList(
-          //     title: 'Žanrovi',
-          //     genres: DataMock.homeScreenGenres
-          //         .map((genre) =>
-          //             GenreListModel(name: genre.name, icon: genre.icon))
-          //         .toList()),
+          GenresController(),
+          const SizedBox(
+            height: 500,
+          ),
         ],
       ),
     );

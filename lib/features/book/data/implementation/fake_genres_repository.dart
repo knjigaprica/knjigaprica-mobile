@@ -16,7 +16,7 @@ class FakeGenresRepository extends GenresRepository {
   @override
   Future<List<Genre>> getGenres() {
     return Future.delayed(
-      const Duration(seconds: 1),
+      const Duration(seconds: 5),
       () => _genres,
     );
   }

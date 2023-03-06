@@ -36,7 +36,7 @@ class FakeBooksRepository extends BooksRepository {
   @override
   Future<List<Book>> getNewestBooks() {
     return Future.delayed(
-      const Duration(seconds: 1),
+      const Duration(seconds: 5),
       () => _books,
     );
   }
@@ -44,7 +44,7 @@ class FakeBooksRepository extends BooksRepository {
   @override
   Future<List<Book>> getPopularBooks() {
     return Future.delayed(
-      const Duration(seconds: 1),
+      const Duration(seconds: 5),
       () => _books,
     );
   }
