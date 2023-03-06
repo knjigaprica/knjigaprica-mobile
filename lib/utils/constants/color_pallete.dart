@@ -59,4 +59,8 @@ class ColorPallete {
       Color.fromARGB(255, 67, 58, 97);
   static const homeScreenBookAuthorColor = Color(0xFF8D8A95);
   static const homeScreenGenreColor = Color(0xFFEEEEFC);
+  static const homeScreenVaucherSecondaryTextColor = Color(0xFF575760);
+  static const homeScreenVaucherBackgroundGradientColor1 = Color(0xFFF4ECED);
+  static const homeScreenVaucherBackgroundGradientColor2 =
+      Color.fromRGBO(252, 247, 247, 0.5);
 }

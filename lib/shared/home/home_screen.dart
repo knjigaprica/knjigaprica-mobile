@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'genres_controller.dart';
 import 'popular_books_controller.dart';
+import 'redeem_coupon.dart';
 import 'welcome_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,6 +23,13 @@ class HomeScreen extends StatelessWidget {
             height: 40,
           ),
           GenresController(),
+          const SizedBox(
+            height: 48,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: RedeemCoupon(),
+          ),
         ],
       ),
     );

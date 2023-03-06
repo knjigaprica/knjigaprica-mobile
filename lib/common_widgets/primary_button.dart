@@ -6,22 +6,25 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final double width;
+  final double borderRadius;
 
   const PrimaryButton(
       {super.key,
       this.isLoading = false,
       required this.text,
       required this.onPressed,
-      this.width = double.infinity});
+      this.width = double.infinity,
+      this.borderRadius = 84});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+        width: width,
         height: 56,
         child: CupertinoButton(
           onPressed: onPressed,
           color: Theme.of(context).colorScheme.primary,
-          borderRadius: const BorderRadius.all(Radius.circular(84)),
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
           pressedOpacity: 0.9,
           child: isLoading
               ? const FittedBox(
