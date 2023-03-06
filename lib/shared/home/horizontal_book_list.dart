@@ -14,13 +14,11 @@ class HorizontalBookList extends StatelessWidget {
       {super.key,
       required this.title,
       this.isLoading = false,
-      this.books = const [],
-      this.spacing = 24});
+      this.books = const []});
 
   final String title;
   final bool isLoading;
   final List<HorizontalBookListItemModel> books;
-  final double spacing;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class HorizontalBookList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: spacing),
+          padding: const EdgeInsets.only(left: 24),
           child: Text(
             title,
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
@@ -43,8 +41,8 @@ class HorizontalBookList extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: spacing,
+                const SizedBox(
+                  width: 24,
                 ),
                 if (isLoading)
                   Skeleton(
@@ -59,8 +57,8 @@ class HorizontalBookList extends StatelessWidget {
                               height: 210,
                               color: Colors.white,
                             ),
-                            SizedBox(
-                              width: spacing,
+                            const SizedBox(
+                              width: 24,
                             ),
                           ],
                         ),
@@ -78,8 +76,8 @@ class HorizontalBookList extends StatelessWidget {
                                 Image.network(book.imageUrl, fit: BoxFit.cover),
                           ),
                         ),
-                        SizedBox(
-                          width: spacing,
+                        const SizedBox(
+                          width: 24,
                         )
                       ]))
               ],
