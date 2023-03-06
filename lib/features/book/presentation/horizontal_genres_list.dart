@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/skeleton.dart';
-import '../../utils/constants/color_pallete.dart';
+import '../../../common_widgets/skeleton.dart';
+import '../../../utils/constants/color_pallete.dart';
 
 class HorizontalGenresListItemModel {
   final String name;

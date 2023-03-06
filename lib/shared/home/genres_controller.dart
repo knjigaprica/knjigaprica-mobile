@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/book/data/genres_repository.dart';
-import 'horizontal_genres_list.dart';
+import '../../features/book/presentation/horizontal_genres_list.dart';
 
 class GenresController extends StatelessWidget {
   GenresController({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/skeleton.dart';
+import '../../../common_widgets/skeleton.dart';
 
 class HorizontalBookListItemModel {
   final String id;

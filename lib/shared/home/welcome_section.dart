@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../features/book/presentation/extended_book_list.dart';
 import '../../utils/constants/color_pallete.dart';
-import 'extended_book_list.dart';
 
 class WelcomeSection extends StatelessWidget {
   const WelcomeSection({super.key});
