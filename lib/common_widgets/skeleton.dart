@@ -12,6 +12,5 @@ class Skeleton extends StatelessWidget {
         baseColor: Colors.grey.shade300,
         highlightColor: Colors.grey.shade100,
         child: child);
-    ;
   }
 }

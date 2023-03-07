@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../common_widgets/skeleton.dart';
+import '../book_screen/book_screen_controller.dart';
 
 class HomeHorizontalBookListItemModel {
   final String id;
@@ -71,10 +72,16 @@ class HomeHorizontalBookList extends StatelessWidget {
                         SizedBox(
                           width: 140,
                           height: 210,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(4),
-                            child:
-                                Image.network(book.imageUrl, fit: BoxFit.cover),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(BookScreenController.routeName);
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: Image.network(book.imageUrl,
+                                  fit: BoxFit.cover),
+                            ),
                           ),
                         ),
                         const SizedBox(
