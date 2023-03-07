@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../features/vouchers/presentation/redeem_voucher.dart';
 import 'genres_controller.dart';
 import 'newest_books_controller.dart';
 import 'popular_books_controller.dart';
-import 'redeem_voucher.dart';
 import 'welcome_section.dart';
 
 class HomeScreen extends StatelessWidget {
