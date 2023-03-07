@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../shared/main/main_template.dart';
-import 'features/book/data/books_repository.dart';
-import 'features/book/data/genres_repository.dart';
-import 'features/book/data/implementation/fake_books_repository.dart';
-import 'features/book/data/implementation/fake_genres_repository.dart';
+import 'features/books/data/books_repository.dart';
+import 'features/books/data/genres_repository.dart';
+import 'features/books/data/implementation/fake_books_repository.dart';
+import 'features/books/data/implementation/fake_genres_repository.dart';
 import 'routing/routes.dart';
 import 'utils/constants/color_pallete.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/book/presentation/extended_book_list.dart';
+import '../../features/books/presentation/extended_book_list.dart';
 import '../../utils/constants/color_pallete.dart';
 
 class WelcomeSection extends StatelessWidget {

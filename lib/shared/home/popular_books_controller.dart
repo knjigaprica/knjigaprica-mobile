@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../features/book/data/books_repository.dart';
-import '../../features/book/presentation/horizontal_book_list.dart';
+import '../../features/books/data/books_repository.dart';
+import '../../features/books/presentation/horizontal_book_list.dart';
 
 class PopularBooksController extends StatelessWidget {
   PopularBooksController({super.key});
