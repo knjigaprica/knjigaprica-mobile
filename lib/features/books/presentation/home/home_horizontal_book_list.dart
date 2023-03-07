@@ -1,17 +1,17 @@
-
 import 'package:flutter/material.dart';
 
-import '../../../common_widgets/skeleton.dart';
+import '../../../../common_widgets/skeleton.dart';
 
-class HorizontalBookListItemModel {
+class HomeHorizontalBookListItemModel {
   final String id;
   final String imageUrl;
 
-  const HorizontalBookListItemModel({required this.id, required this.imageUrl});
+  const HomeHorizontalBookListItemModel(
+      {required this.id, required this.imageUrl});
 }
 
-class HorizontalBookList extends StatelessWidget {
-  const HorizontalBookList(
+class HomeHorizontalBookList extends StatelessWidget {
+  const HomeHorizontalBookList(
       {super.key,
       required this.title,
       this.isLoading = false,
@@ -19,7 +19,7 @@ class HorizontalBookList extends StatelessWidget {
 
   final String title;
   final bool isLoading;
-  final List<HorizontalBookListItemModel> books;
+  final List<HomeHorizontalBookListItemModel> books;
 
   @override
   Widget build(BuildContext context) {

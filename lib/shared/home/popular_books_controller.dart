@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/books/data/books_repository.dart';
-import '../../features/books/presentation/horizontal_book_list.dart';
+import '../../features/books/presentation/home/home_horizontal_book_list.dart';
 
 class PopularBooksController extends StatelessWidget {
   PopularBooksController({super.key});
@@ -15,15 +15,15 @@ class PopularBooksController extends StatelessWidget {
       future: booksRepo.getPopularBooks(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return HorizontalBookList(
+          return HomeHorizontalBookList(
             title: 'Najpopularnije',
             books: snapshot.data!
-                .map((book) => HorizontalBookListItemModel(
+                .map((book) => HomeHorizontalBookListItemModel(
                     id: book.id, imageUrl: book.imageUrl))
                 .toList(),
           );
         } else {
-          return const HorizontalBookList(
+          return const HomeHorizontalBookList(
             title: 'Najpopularnije',
             isLoading: true,
           );

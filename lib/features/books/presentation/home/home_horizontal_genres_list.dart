@@ -1,20 +1,20 @@
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../common_widgets/skeleton.dart';
-import '../../../utils/constants/color_pallete.dart';
+import '../../../../common_widgets/skeleton.dart';
+import '../../../../utils/constants/color_pallete.dart';
 
-class HorizontalGenresListItemModel {
+class HomeHorizontalGenresListItemModel {
   final String name;
   final IconData icon;
 
-  const HorizontalGenresListItemModel({required this.name, required this.icon});
+  const HomeHorizontalGenresListItemModel(
+      {required this.name, required this.icon});
 }
 
-class HorizontalGenresList extends StatelessWidget {
-  const HorizontalGenresList(
+class HomeHorizontalGenresList extends StatelessWidget {
+  const HomeHorizontalGenresList(
       {super.key,
       required this.title,
       this.genres = const [],
@@ -22,7 +22,7 @@ class HorizontalGenresList extends StatelessWidget {
 
   final String title;
   final bool isLoading;
-  final List<HorizontalGenresListItemModel> genres;
+  final List<HomeHorizontalGenresListItemModel> genres;
 
   int get genresFirstHalfLength {
     return (genres.length / 2).round();

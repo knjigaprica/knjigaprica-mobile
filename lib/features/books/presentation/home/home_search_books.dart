@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../common_widgets/primary_button.dart';
-import '../../../utils/constants/color_pallete.dart';
+import '../../../../common_widgets/primary_button.dart';
+import '../../../../utils/constants/color_pallete.dart';
 
 class HomeSearchBooks extends StatelessWidget {
   const HomeSearchBooks({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ExtendedBookList extends StatelessWidget {
-  const ExtendedBookList({super.key, required this.title});
+class HomeHorizontalBookTimeList extends StatelessWidget {
+  const HomeHorizontalBookTimeList({super.key, required this.title});
 
   final String title;
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/books/presentation/extended_book_list.dart';
+import '../../features/books/presentation/home/home_horizontal_book_time_list.dart';
 import '../../utils/constants/color_pallete.dart';
 
 class WelcomeSection extends StatelessWidget {
@@ -53,7 +53,7 @@ class WelcomeSection extends StatelessWidget {
         const SizedBox(
           height: 32,
         ),
-        const ExtendedBookList(title: 'Nastavi slušanje')
+        const HomeHorizontalBookTimeList(title: 'Nastavi slušanje')
       ]),
     );
   }
