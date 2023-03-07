@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knjigaprica/features/books/presentation/home_search_books.dart';
 
 import '../../features/vouchers/presentation/redeem_voucher.dart';
 import 'genres_controller.dart';
@@ -35,6 +36,13 @@ class HomeScreen extends StatelessWidget {
             height: 48,
           ),
           PopularBooksController(),
+          const SizedBox(
+            height: 48,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: HomeSearchBooks(),
+          ),
           const SizedBox(
             height: 128,
           ),

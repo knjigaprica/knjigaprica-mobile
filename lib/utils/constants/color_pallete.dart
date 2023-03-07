@@ -63,4 +63,8 @@ class ColorPallete {
   static const homeScreenVaucherBackgroundGradientColor1 = Color(0xFFF4ECED);
   static const homeScreenVaucherBackgroundGradientColor2 =
       Color.fromRGBO(252, 247, 247, 0.5);
+  static const homeScreenSearchBooksBackgroundGradientColor1 =
+      Color(0xFFF4ECED);
+  static const homeScreenSearchBooksBackgroundGradientColor2 =
+      Color.fromRGBO(252, 247, 247, 0.5);
 }

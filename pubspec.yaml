@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/images/welcome-books.png
     - assets/images/home-voucher-background.png
+    - assets/images/home-search-books-background.png
     - assets/logo/logo-full.png
     - assets/logo/logo-icon.png
     - assets/svgs/google-icon.svg
