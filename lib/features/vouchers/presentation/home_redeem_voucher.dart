@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../common_widgets/primary_button.dart';
 import '../../../utils/constants/color_pallete.dart';
 
-class RedeemVoucher extends StatelessWidget {
-  const RedeemVoucher({super.key});
+class HomeRedeemVoucher extends StatelessWidget {
+  const HomeRedeemVoucher({super.key});
 
   @override
   Widget build(BuildContext context) {
