@@ -4,19 +4,19 @@ import 'package:get_it/get_it.dart';
 import '../../features/book/data/books_repository.dart';
 import '../../features/book/presentation/horizontal_book_list.dart';
 
-class PopularBooksController extends StatelessWidget {
-  PopularBooksController({super.key});
+class NewestBooksController extends StatelessWidget {
+  NewestBooksController({super.key});
 
   final booksRepo = GetIt.I<BooksRepository>();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: booksRepo.getPopularBooks(),
+      future: booksRepo.getNewestBooks(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return HorizontalBookList(
-            title: 'Najpopularnije',
+            title: 'Najnovije',
             books: snapshot.data!
                 .map((book) => HorizontalBookListItemModel(
                     id: book.id, imageUrl: book.imageUrl))
@@ -24,7 +24,7 @@ class PopularBooksController extends StatelessWidget {
           );
         } else {
           return const HorizontalBookList(
-            title: 'Najpopularnije',
+            title: 'Najnovije',
             isLoading: true,
           );
         }
