@@ -18,7 +18,7 @@ class ApplicationRoutes {
       RegisterConfirmationScreen.routeName: (_) =>
           const RegisterConfirmationScreen(),
       WelcomeScreen.routeName: (_) => const WelcomeScreen(),
-      BookScreenController.routeName: (_) => const BookScreenController()
+      BookScreenController.routeName: (_) => BookScreenController()
     };
   }
 }

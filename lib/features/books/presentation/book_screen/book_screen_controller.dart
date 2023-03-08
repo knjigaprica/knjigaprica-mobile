@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../data/books_repository.dart';
 import 'skeleton_book_screen.dart';
 
 class BookScreenController extends StatelessWidget {
-  const BookScreenController({super.key});
+  BookScreenController({super.key});
 
   static const routeName = '/book';
 
+  final booksRepo = GetIt.I<BooksRepository>();
+
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: SkeletonBookScreen());
+    return FutureBuilder(
+      future: booksRepo.getBook('1'),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return const Placeholder();
+        } else {
+          return const SkeletonBookScreen();
+        }
+      },
+    );
   }
 }
