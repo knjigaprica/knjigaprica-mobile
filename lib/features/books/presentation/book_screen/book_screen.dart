@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/color_pallete.dart';
 import 'book_description.dart';
+import 'book_genres.dart';
 import 'book_overview.dart';
 import 'recommended_books_controller.dart';
 
@@ -27,6 +28,30 @@ class BookScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: BookDescription(),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                const Divider(
+                  height: 1,
+                  indent: 24,
+                  endIndent: 24,
+                  thickness: 1,
+                  color: ColorPallete.bookScreenBorderColor,
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: BookGenres(
+                    genres: [
+                      'Lični razvoj',
+                      'Popularna psihologija',
+                      'Biznis',
+                      'Marketing'
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 32,
