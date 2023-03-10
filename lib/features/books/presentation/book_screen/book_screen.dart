@@ -2,8 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
-import 'package:knjigaprica/common_widgets/primary_button.dart';
-import 'package:knjigaprica/utils/constants/color_pallete.dart';
+
+import '../../../../common_widgets/primary_button.dart';
+import '../../../../utils/constants/color_pallete.dart';
 
 class BookScreen extends StatelessWidget {
   const BookScreen({super.key});
@@ -37,17 +38,18 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Stack(
       children: [
-        Container(
-          decoration: const BoxDecoration(
-            border: Border(
-                bottom: BorderSide(color: ColorPallete.bookScreenBorderColor)),
-          ),
-          width: double.infinity,
-          margin: EdgeInsets.only(
-              top: kToolbarHeight *
-                  getCollapsePercentage(shrinkOffset, boost: 1.3),
-              left: 24 * getCollapsePercentage(shrinkOffset),
-              right: 24 * getCollapsePercentage(shrinkOffset)),
+        Align(
+            alignment: Alignment.bottomCenter,
+            child: Divider(
+              indent: getCollapsePercentage(shrinkOffset) * 24,
+              endIndent: getCollapsePercentage(shrinkOffset) * 24,
+              thickness: 1,
+              height: 1,
+              color: ColorPallete.bookScreenBorderColor,
+            )),
+        Padding(
+          padding: EdgeInsets.only(
+              top: kToolbarHeight * getCollapsePercentage(shrinkOffset)),
           child: Column(
             children: [
               const Expanded(
@@ -55,7 +57,7 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
                 child: SizedBox(),
               ),
               Expanded(
-                flex: 52,
+                flex: 53,
                 child: Opacity(
                   opacity: getCollapsePercentage(shrinkOffset, boost: 1.3),
                   child: AspectRatio(
@@ -65,7 +67,7 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
                         BoxShadow(
                             blurRadius: 10,
                             offset: Offset(0, 10),
-                            color: Color.fromARGB(255, 221, 219, 219))
+                            color: ColorPallete.bookScreenImageShadowColor)
                       ]),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
@@ -76,7 +78,7 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
                   ),
                 ),
               ),
-              const Expanded(flex: 4, child: SizedBox()),
+              const Expanded(flex: 5, child: SizedBox()),
               SizedBox(
                 height: kToolbarHeight - 1,
                 child: Center(
@@ -88,95 +90,107 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
                   ),
                 ),
               ),
-              const Expanded(flex: 2, child: SizedBox()),
-              Expanded(
-                flex: 13,
-                child: Opacity(
-                  opacity: getCollapsePercentage(shrinkOffset, boost: 2),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Expanded(
+              const Expanded(flex: 45, child: SizedBox()),
+            ],
+          ),
+        ),
+        Opacity(
+          opacity: getCollapsePercentage(shrinkOffset, boost: 2),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: EdgeInsets.only(
+                  bottom: 30 * getCollapsePercentage(shrinkOffset),
+                  left: 24,
+                  right: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 36,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                            child: Column(
+                          children: const [
+                            Text('Autor',
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w500)),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Text('Zigfrid Vitver',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorPallete.primaryColor))
+                          ],
+                        )),
+                        const VerticalDivider(
+                          thickness: 1,
+                          color: ColorPallete.bookScreenBorderColor,
+                        ),
+                        Expanded(
                           child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Flexible(
-                              child: Text('Autor',
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500))),
-                          FittedBox(
-                              child: Text('Zigfrid Vitver',
+                            children: const [
+                              Text(
+                                'Izdavač',
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text('Laguna',
                                   style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: ColorPallete.primaryColor)))
-                        ],
-                      )),
-                      const VerticalDivider(
-                        thickness: 1,
-                        color: ColorPallete.bookScreenBorderColor,
-                      ),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
-                            Flexible(
-                                child: Text(
-                              'Izdavač',
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w500),
-                            )),
-                            Flexible(
-                                child: Text('Laguna',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorPallete.primaryColor)))
-                          ],
+                                      color: ColorPallete.primaryColor))
+                            ],
+                          ),
                         ),
-                      ),
-                      const VerticalDivider(),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
-                            Flexible(
-                                child: Text('Trajanje',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500))),
-                            Flexible(
-                                child: Text('2h:09m',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorPallete.primaryColor)))
-                          ],
+                        const VerticalDivider(
+                          thickness: 1,
+                          color: ColorPallete.bookScreenBorderColor,
                         ),
-                      )
-                    ],
+                        Expanded(
+                          child: Column(
+                            children: const [
+                              Text('Trajanje',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500)),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text('2h:09m',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: ColorPallete.primaryColor))
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              const Expanded(flex: 5, child: SizedBox()),
-              Expanded(
-                flex: 14,
-                child: Opacity(
-                  opacity: getCollapsePercentage(shrinkOffset, boost: 10),
-                  child: PrimaryButton(
+                  SizedBox(
+                    height: 32 * getCollapsePercentage(shrinkOffset),
+                  ),
+                  PrimaryButton(
                     text: 'Poslušaj demo',
                     onPressed: () {},
                     borderRadius: 8,
                     color: ColorPallete.secondaryColor,
                   ),
-                ),
+                ],
               ),
-              const Expanded(flex: 7, child: SizedBox()),
-            ],
+            ),
           ),
         ),
-        SizedBox(
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           height: kToolbarHeight - 1,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -186,25 +200,26 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
             ),
             Row(children: [
               Opacity(
-                opacity: getCollapsePercentage(shrinkOffset, boost: 1.5),
+                opacity: getExpandedActionsOpacity(shrinkOffset),
                 child: IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.ios_share_outlined),
                 ),
               ),
               Opacity(
-                opacity: getCollapsePercentage(shrinkOffset, boost: 1.5),
+                opacity: getExpandedActionsOpacity(shrinkOffset),
                 child: IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.favorite_outline),
                 ),
               ),
-              Opacity(
-                  opacity: 1 - getCollapsePercentage(shrinkOffset, boost: 0.5),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.play_arrow),
-                  )),
+              if (getCollapsePercentage(shrinkOffset) <= 0.5)
+                Opacity(
+                    opacity: getMiniPlayButtonOpacity(shrinkOffset),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.play_arrow),
+                    )),
             ]),
           ]),
         ),
@@ -212,10 +227,26 @@ class _BookOverviewAppBar extends SliverPersistentHeaderDelegate {
     );
   }
 
-  double getCollapsePercentage(double shrinkOffset, {double boost = 1}) {
-    double fullPercetage = 1 - (shrinkOffset * boost) / (maxExtent - minExtent);
+  double getMiniPlayButtonOpacity(double shrinkOffset) {
+    double collapsePercentage = getCollapsePercentage(shrinkOffset);
 
-    return max(0, fullPercetage);
+    if (collapsePercentage > 0.5) {
+      return 0;
+    }
+
+    return (0.5 - collapsePercentage) * 2;
+  }
+
+  double getExpandedActionsOpacity(double shrinkOffset) {
+    if (getCollapsePercentage(shrinkOffset) <= 0.5) {
+      return 0;
+    }
+
+    return getCollapsePercentage(shrinkOffset, boost: 2);
+  }
+
+  double getCollapsePercentage(double shrinkOffset, {double boost = 1}) {
+    return max(0, 1 - (shrinkOffset * boost) / (maxExtent - minExtent));
   }
 
   @override

@@ -69,4 +69,5 @@ class ColorPallete {
       Color.fromRGBO(252, 247, 247, 0.5);
 
   static const bookScreenBorderColor = Color(0xFFE7E7E7);
+  static const bookScreenImageShadowColor = Color.fromARGB(255, 221, 219, 219);
 }

@@ -35,7 +35,10 @@ class PrimaryButton extends StatelessWidget {
                   child: CircularProgressIndicator.adaptive(
                   backgroundColor: Colors.white,
                 ))
-              : Text(text),
+              : Text(
+                  text,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
         ));
   }
 }
