@@ -16,11 +16,13 @@ class HomeHorizontalBookList extends StatelessWidget {
       {super.key,
       required this.title,
       this.isLoading = false,
-      this.books = const []});
+      this.books = const [],
+      this.titleSize = 24});
 
   final String title;
   final bool isLoading;
   final List<HomeHorizontalBookListItemModel> books;
+  final double titleSize;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class HomeHorizontalBookList extends StatelessWidget {
           padding: const EdgeInsets.only(left: 24),
           child: Text(
             title,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: titleSize, fontWeight: FontWeight.w600),
           ),
         ),
         const SizedBox(
