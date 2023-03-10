@@ -67,4 +67,6 @@ class ColorPallete {
       Color(0xFFF4ECED);
   static const homeScreenSearchBooksBackgroundGradientColor2 =
       Color.fromRGBO(252, 247, 247, 0.5);
+
+  static const bookScreenBorderColor = Color(0xFFE7E7E7);
 }

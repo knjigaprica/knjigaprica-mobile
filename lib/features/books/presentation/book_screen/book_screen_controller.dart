@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../data/books_repository.dart';
+import 'book_screen.dart';
 import 'skeleton_book_screen.dart';
 
 class BookScreenController extends StatelessWidget {
@@ -17,7 +18,7 @@ class BookScreenController extends StatelessWidget {
       future: booksRepo.getBook('1'),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return const Placeholder();
+          return const BookScreen();
         } else {
           return const SkeletonBookScreen();
         }
