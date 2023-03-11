@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../data/books_repository.dart';
-import '../home/home_horizontal_book_list.dart';
+import '../shared/horizontal_book_list.dart';
 
 class RecommendedBooksController extends StatelessWidget {
   RecommendedBooksController({super.key});
@@ -15,16 +15,16 @@ class RecommendedBooksController extends StatelessWidget {
       future: booksRepo.getNewestBooks(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return HomeHorizontalBookList(
+          return HorizontalBookList(
             title: 'Preporučene knjige',
             titleSize: 20,
             books: snapshot.data!
-                .map((book) => HomeHorizontalBookListItemModel(
+                .map((book) => HorizontalBookListItemModel(
                     id: book.id, imageUrl: book.imageUrl))
                 .toList(),
           );
         } else {
-          return const HomeHorizontalBookList(
+          return const HorizontalBookList(
             title: 'Preporučene knjige',
             titleSize: 20,
             isLoading: true,
