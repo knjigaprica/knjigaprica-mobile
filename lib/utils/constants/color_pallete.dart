@@ -54,6 +54,7 @@ class ColorPallete {
   static const playerSpeedButtonColor = Color(0xFFDBDDED);
   static const playerChapterButtonBorderColor = Color(0xFFDCDCDC);
   static const playerSpeedCheckIconColor = Color(0xFF27AE60);
+  static const playerChaptersSelectedChapterColor = Color(0xFFE5F5EC);
 
   static const homeScreenWelcomeSectionDividerColor =
       Color.fromARGB(255, 67, 58, 97);
