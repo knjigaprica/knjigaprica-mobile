@@ -1,9 +1,11 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // ignore: implementation_imports
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 
+import '../../../../common_widgets/my_icon_button.dart';
 import '../../../../common_widgets/play_button.dart';
 import '../../../../common_widgets/primary_button.dart';
 import '../../../../utils/constants/color_pallete.dart';
@@ -180,25 +182,25 @@ class BookOverview extends SliverPersistentHeaderDelegate {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
+                  MyIconButton(
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    icon: const Icon(Icons.arrow_back),
+                    icon: CupertinoIcons.chevron_left,
                   ),
                   Row(children: [
                     Opacity(
                       opacity: getExpandedActionsOpacity(shrinkOffset),
-                      child: IconButton(
+                      child: MyIconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.ios_share_outlined),
+                        icon: Icons.ios_share_outlined,
                       ),
                     ),
                     Opacity(
                       opacity: getExpandedActionsOpacity(shrinkOffset),
-                      child: IconButton(
+                      child: MyIconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.favorite_outline),
+                        icon: Icons.favorite_outline,
                       ),
                     ),
                     if (getCollapsePercentage(shrinkOffset) <= 0.5)
