@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // ignore: implementation_imports
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 
+import '../../../../common_widgets/play_button.dart';
 import '../../../../common_widgets/primary_button.dart';
 import '../../../../utils/constants/color_pallete.dart';
 
@@ -166,7 +167,7 @@ class BookOverview extends SliverPersistentHeaderDelegate {
                       text: 'Poslušaj demo',
                       onPressed: () {},
                       borderRadius: 8,
-                      color: ColorPallete.secondaryColor,
+                      color: ColorPallete.darkTone,
                     ),
                   ],
                 ),
@@ -203,9 +204,10 @@ class BookOverview extends SliverPersistentHeaderDelegate {
                     if (getCollapsePercentage(shrinkOffset) <= 0.5)
                       Opacity(
                           opacity: getMiniPlayButtonOpacity(shrinkOffset),
-                          child: IconButton(
+                          child: PlayButton(
+                            variant: PlayButtonVariant.darkTone,
+                            size: 36,
                             onPressed: () {},
-                            icon: const Icon(Icons.play_arrow),
                           )),
                   ]),
                 ]),

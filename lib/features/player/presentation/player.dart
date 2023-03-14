@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common_widgets/marquee.dart';
+import '../../../common_widgets/play_button.dart';
 import '../../../utils/constants/color_pallete.dart';
 import '../application/player_provider.dart';
 import 'player_chapters.dart';
@@ -108,7 +109,7 @@ class Player extends StatelessWidget {
                       data: const SliderThemeData(
                           trackHeight: 5,
                           activeTrackColor: ColorPallete.primaryColor,
-                          thumbColor: ColorPallete.secondaryColor,
+                          thumbColor: ColorPallete.darkTone,
                           inactiveTrackColor:
                               ColorPallete.playerSliderInactiveColor),
                       child: Slider(
@@ -138,54 +139,41 @@ class Player extends StatelessWidget {
               flex: 4,
               child: SizedBox(),
             ),
-            Expanded(
-              flex: 12,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Expanded(
-                      child: IconButton(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(CupertinoIcons.backward_end_fill),
+                  iconSize: 30,
+                )),
+                Expanded(
+                  child: IconButton(
                     onPressed: () {},
-                    icon: const Icon(CupertinoIcons.backward_end_fill),
+                    icon: const Icon(Icons.replay_10),
+                    iconSize: 40,
+                  ),
+                ),
+                PlayButton(
+                  onPressed: () {},
+                  size: 64,
+                ),
+                Expanded(
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.forward_10),
+                    iconSize: 40,
+                  ),
+                ),
+                Expanded(
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(CupertinoIcons.forward_end_fill),
                     iconSize: 30,
-                  )),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.replay_10),
-                      iconSize: 40,
-                    ),
                   ),
-                  Expanded(
-                      child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        splashFactory: NoSplash.splashFactory,
-                        elevation: 0,
-                        shadowColor: Colors.transparent),
-                    onPressed: () {},
-                    child: const Icon(
-                      Icons.play_arrow,
-                      size: 40,
-                    ),
-                  )),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.forward_10),
-                      iconSize: 40,
-                    ),
-                  ),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(CupertinoIcons.forward_end_fill),
-                      iconSize: 30,
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
             const Expanded(
               flex: 5,
@@ -229,7 +217,7 @@ class _SpeedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: ColorPallete.playerSpeedButtonColor,
-          foregroundColor: ColorPallete.secondaryColor,
+          foregroundColor: ColorPallete.darkTone,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           shadowColor: Colors.transparent,
           splashFactory: NoSplash.splashFactory,
@@ -278,7 +266,7 @@ class _ChaptersButton extends StatelessWidget {
             shadowColor: Colors.transparent,
             splashFactory: NoSplash.splashFactory,
             backgroundColor: Colors.white,
-            foregroundColor: ColorPallete.secondaryColor,
+            foregroundColor: ColorPallete.darkTone,
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
             ),

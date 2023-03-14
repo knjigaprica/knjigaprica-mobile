@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ColorPallete {
   static const primaryColor = Color(0xFFED505D);
-  static const secondaryColor = Color(0xFF0B061D);
+  static const primaryHighlightColor = Color(0xFFC1444E);
+  static const darkTone = Color(0xFF0B061D);
   static const errorColor = Color(0xFFE02424);
   static const backgroundColor = Colors.white;
 
@@ -13,7 +14,7 @@ class ColorPallete {
     brightness: Brightness.light,
     primary: ColorPallete.primaryColor,
     onPrimary: Colors.white,
-    secondary: ColorPallete.secondaryColor,
+    secondary: ColorPallete.darkTone,
     onSecondary: Colors.white,
     error: ColorPallete.errorColor,
     onError: Colors.white,

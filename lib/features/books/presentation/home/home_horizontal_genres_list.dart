@@ -147,7 +147,7 @@ class _HorizontalGenresListitem extends StatelessWidget {
         ),
         Text(name,
             style: const TextStyle(
-                color: ColorPallete.secondaryColor,
+                color: ColorPallete.darkTone,
                 fontSize: 16,
                 fontWeight: FontWeight.w500))
       ]),
