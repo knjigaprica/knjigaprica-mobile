@@ -7,4 +7,14 @@ class PlayerBook {
 
   const PlayerBook(
       {required this.title, required this.author, required this.chapters});
+
+  void selectChapter(String chapterId) {
+    for (var chapter in chapters) {
+      if (chapter.id == chapterId) {
+        chapter.isSelected = true;
+      } else {
+        chapter.isSelected = false;
+      }
+    }
+  }
 }

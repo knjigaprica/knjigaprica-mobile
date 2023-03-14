@@ -7,7 +7,7 @@ import '../application/player_provider.dart';
 class PlayerSpeed extends StatelessWidget {
   const PlayerSpeed({super.key});
 
-  static const List<double> speedOptions = [
+  static const List<double> _speedOptions = [
     0.5,
     0.75,
     1,
@@ -46,8 +46,9 @@ class PlayerSpeed extends StatelessWidget {
         Consumer<PlayerProvider>(
           builder: (context, player, child) => Expanded(
             child: ListView(
+                padding: const EdgeInsets.only(bottom: 12),
                 physics: const BouncingScrollPhysics(),
-                children: speedOptions
+                children: _speedOptions
                     .map(
                       (speed) => ListTile(
                         minVerticalPadding: 20,
@@ -59,7 +60,7 @@ class PlayerSpeed extends StatelessWidget {
                         trailing: player.speed == speed
                             ? const Icon(
                                 Icons.check,
-                                color: ColorPallete.playerSpeedCheckIconColor,
+                                color: ColorPallete.playerSpeedsCheckIconColor,
                               )
                             : null,
                         onTap: () => player.setSpeed(speed),

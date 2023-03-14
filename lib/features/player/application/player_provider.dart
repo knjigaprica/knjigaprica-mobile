@@ -4,9 +4,7 @@ import '../domain/player_book.dart';
 import '../domain/player_book_chapter.dart';
 
 class PlayerProvider with ChangeNotifier {
-  bool _isExpanded = false;
-
-  late PlayerBook _book =
+  PlayerBook? _book =
       PlayerBook(title: 'Tajna Sreće', author: 'Zigfrud Vitver', chapters: [
     PlayerBookChapter(
         id: '1',
@@ -46,17 +44,13 @@ class PlayerProvider with ChangeNotifier {
         id: '10',
         name:
             'How to Hack the Job Interview and get a hight paid job and become a milionare',
-        duration: const Duration(hours: 2, minutes: 14, seconds: 34))
+        duration: const Duration(hours: 2, minutes: 14, seconds: 34),
+        isSelected: true)
   ]);
 
   double _speed = 1;
-  late String _selectedChapterId = '1';
 
-  bool get isExpanded {
-    return _isExpanded;
-  }
-
-  PlayerBook get book {
+  PlayerBook? get book {
     return _book;
   }
 
@@ -64,18 +58,8 @@ class PlayerProvider with ChangeNotifier {
     return _speed;
   }
 
-  String get selectedChapterId {
-    return _selectedChapterId;
-  }
-
-  void expand() {
-    _isExpanded = true;
-    notifyListeners();
-  }
-
-  void collapse() {
-    _isExpanded = false;
-    notifyListeners();
+  PlayerBookChapter? get selectedChapter {
+    return _book?.chapters.singleWhere((chapter) => chapter.isSelected);
   }
 
   void setBook({required String title, required String author}) {
@@ -83,8 +67,8 @@ class PlayerProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void setChapter({required String id}) {
-    _selectedChapterId = id;
+  void setChapter(String id) {
+    _book!.selectChapter(id);
     notifyListeners();
   }
 

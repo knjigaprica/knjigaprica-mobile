@@ -14,181 +14,185 @@ class Player extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(MediaQuery.of(context).viewPadding.top.toString());
     var player = Provider.of<PlayerProvider>(context);
-    return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 5,
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: player.collapse,
-                    icon: const Icon(CupertinoIcons.chevron_down),
-                  )
-                ],
-              ),
-            ),
-            const Expanded(
-              flex: 3,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 26,
-              child: Container(
-                decoration: const BoxDecoration(boxShadow: [
-                  BoxShadow(
-                      blurRadius: 15,
-                      spreadRadius: 10,
-                      color: ColorPallete.miniplayerBoxShadowColor)
-                ]),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: Image.network(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5wB4XU0KtV_bMX0E01U64h7SBgDkpedK7Lg&usqp=CAU',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-            const Expanded(
-              flex: 3,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 4,
-              child: Marquee(
-                  child: Text(
-                player.book.title,
-                style:
-                    const TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
-              )),
-            ),
-            const Expanded(
-              flex: 1,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 4,
-              child: Marquee(
-                  child: Text(player.book.author,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          color: ColorPallete.playerAuthorTextColor))),
-            ),
-            const Expanded(
-              flex: 2,
-              child: SizedBox(),
-            ),
-            const Expanded(
-              flex: 3,
-              child: Text('Poglavlje 2',
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
-                      color: ColorPallete.playerChapterTextColor)),
-            ),
-            const Expanded(
-              flex: 3,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 3,
-              child: Row(
-                children: [
-                  const Text(
-                    '1:32',
-                    style: TextStyle(
-                        color: ColorPallete.playerTimeTextColor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  Expanded(
-                    child: SliderTheme(
-                      data: const SliderThemeData(
-                          trackHeight: 5,
-                          activeTrackColor: ColorPallete.primaryColor,
-                          thumbColor: ColorPallete.darkTone,
-                          inactiveTrackColor:
-                              ColorPallete.playerSliderInactiveColor),
-                      child: Slider(
-                        value: 0.3,
-                        onChanged: (value) {},
-                      ),
-                    ),
-                  ),
-                  const Text(
-                    '9:20',
-                    style: TextStyle(
-                        color: ColorPallete.playerTimeTextColor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-            ),
-            const Expanded(
-              flex: 4,
-              child: SizedBox(),
-            ),
-            const Expanded(
-              flex: 6,
-              child: _SpeedButton(),
-            ),
-            const Expanded(
-              flex: 4,
-              child: SizedBox(),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Container(
+      height: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      child: Column(
+        children: [
+          Expanded(
+            flex: 5,
+            child: Row(
               children: [
-                Expanded(
-                    child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(CupertinoIcons.backward_end_fill),
-                  iconSize: 30,
-                )),
-                Expanded(
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.replay_10),
-                    iconSize: 40,
-                  ),
-                ),
-                PlayButton(
-                  onPressed: () {},
-                  size: 64,
-                ),
-                Expanded(
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.forward_10),
-                    iconSize: 40,
-                  ),
-                ),
-                Expanded(
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(CupertinoIcons.forward_end_fill),
-                    iconSize: 30,
-                  ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(CupertinoIcons.chevron_down),
                 )
               ],
             ),
-            const Expanded(
-              flex: 5,
-              child: SizedBox(),
+          ),
+          const Expanded(
+            flex: 3,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 26,
+            child: Container(
+              decoration: const BoxDecoration(boxShadow: [
+                BoxShadow(
+                    blurRadius: 15,
+                    spreadRadius: 10,
+                    color: ColorPallete.miniplayerBoxShadowColor)
+              ]),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5wB4XU0KtV_bMX0E01U64h7SBgDkpedK7Lg&usqp=CAU',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            const Expanded(
-              flex: 8,
-              child: _ChaptersButton(),
+          ),
+          const Expanded(
+            flex: 3,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 4,
+            child: Marquee(
+                child: Text(
+              player.book!.title,
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
+            )),
+          ),
+          const Expanded(
+            flex: 1,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 4,
+            child: Marquee(
+                child: Text(player.book!.author,
+                    style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: ColorPallete.playerAuthorTextColor))),
+          ),
+          const Expanded(
+            flex: 2,
+            child: SizedBox(),
+          ),
+          const Expanded(
+            flex: 3,
+            child: Text('Poglavlje 2',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
+                    color: ColorPallete.playerChapterTextColor)),
+          ),
+          const Expanded(
+            flex: 3,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 3,
+            child: Row(
+              children: [
+                const Text(
+                  '1:32',
+                  style: TextStyle(
+                      color: ColorPallete.playerTimeTextColor,
+                      fontWeight: FontWeight.w500),
+                ),
+                Expanded(
+                  child: SliderTheme(
+                    data: const SliderThemeData(
+                        trackHeight: 5,
+                        activeTrackColor: ColorPallete.primaryColor,
+                        thumbColor: ColorPallete.darkTone,
+                        inactiveTrackColor:
+                            ColorPallete.playerSliderInactiveColor),
+                    child: Slider(
+                      value: 0.3,
+                      onChanged: (value) {},
+                    ),
+                  ),
+                ),
+                const Text(
+                  '9:20',
+                  style: TextStyle(
+                      color: ColorPallete.playerTimeTextColor,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
-            const Expanded(
-              flex: 4,
-              child: SizedBox(),
-            ),
-          ],
-        ));
+          ),
+          const Expanded(
+            flex: 4,
+            child: SizedBox(),
+          ),
+          const Expanded(
+            flex: 6,
+            child: _SpeedButton(),
+          ),
+          const Expanded(
+            flex: 4,
+            child: SizedBox(),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Expanded(
+                  child: IconButton(
+                onPressed: () {},
+                icon: const Icon(CupertinoIcons.backward_end_fill),
+                iconSize: 30,
+              )),
+              Expanded(
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.replay_10),
+                  iconSize: 40,
+                ),
+              ),
+              PlayButton(
+                onPressed: () {},
+                size: 64,
+              ),
+              Expanded(
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.forward_10),
+                  iconSize: 40,
+                ),
+              ),
+              Expanded(
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(CupertinoIcons.forward_end_fill),
+                  iconSize: 30,
+                ),
+              )
+            ],
+          ),
+          const Expanded(
+            flex: 5,
+            child: SizedBox(),
+          ),
+          const Expanded(
+            flex: 8,
+            child: _ChaptersButton(),
+          ),
+          const Expanded(
+            flex: 4,
+            child: SizedBox(),
+          ),
+        ],
+      ),
+    );
   }
 }
 

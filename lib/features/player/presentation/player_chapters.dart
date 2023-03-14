@@ -37,7 +37,7 @@ class PlayerChapters extends StatelessWidget {
         ),
         Consumer<PlayerProvider>(
           builder: (context, player, child) {
-            var chapters = player.book.chapters;
+            var chapters = player.book!.chapters;
 
             return Expanded(
               child: Material(
@@ -45,44 +45,38 @@ class PlayerChapters extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   itemCount: chapters.length,
                   padding: const EdgeInsets.only(bottom: 12),
-                  itemBuilder: (context, index) {
-                    bool isSelected =
-                        player.selectedChapterId == chapters[index].id;
-
-                    return InkResponse(
-                      borderRadius: BorderRadius.circular(12),
-                      onTap: () {
-                        player.setChapter(id: chapters[index].id);
-                      },
-                      splashFactory: NoSplash.splashFactory,
-                      highlightShape: BoxShape.rectangle,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: isSelected
-                                ? ColorPallete
-                                    .playerChaptersSelectedChapterColor
-                                : null,
-                            borderRadius: BorderRadius.circular(12)),
-                        padding: const EdgeInsets.all(12),
-                        child: Row(children: [
-                          Expanded(
-                              child: Text(
-                            chapters[index].name,
-                            style: const TextStyle(fontSize: 18),
-                          )),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            DurationExtensions.formatTimeWithOptionalHour(
-                                chapters[index].duration),
-                            style: const TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w700),
-                          )
-                        ]),
-                      ),
-                    );
-                  },
+                  itemBuilder: (context, index) => InkResponse(
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () {
+                      player.setChapter(chapters[index].id);
+                    },
+                    splashFactory: NoSplash.splashFactory,
+                    highlightShape: BoxShape.rectangle,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: chapters[index].isSelected
+                              ? ColorPallete.playerChaptersSelectedChapterColor
+                              : null,
+                          borderRadius: BorderRadius.circular(12)),
+                      padding: const EdgeInsets.all(12),
+                      child: Row(children: [
+                        Expanded(
+                            child: Text(
+                          chapters[index].name,
+                          style: const TextStyle(fontSize: 18),
+                        )),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          DurationExtensions.formatTimeWithOptionalHour(
+                              chapters[index].duration),
+                          style: const TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w700),
+                        )
+                      ]),
+                    ),
+                  ),
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 16,
                   ),
