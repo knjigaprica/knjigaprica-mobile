@@ -6,7 +6,7 @@ import '../domain/player_book_chapter.dart';
 class PlayerProvider with ChangeNotifier {
   bool _isExpanded = false;
 
-  PlayerBook? _book =
+  late PlayerBook _book =
       PlayerBook(title: 'Tajna Sreće', author: 'Zigfrud Vitver', chapters: [
     PlayerBookChapter(
         id: '1',
@@ -50,16 +50,13 @@ class PlayerProvider with ChangeNotifier {
   ]);
 
   double _speed = 1;
-  PlayerBookChapter? _selectedChapter = PlayerBookChapter(
-      id: '10',
-      name: 'How to Hack the Job Interview',
-      duration: const Duration(minutes: 14, seconds: 34));
+  late String _selectedChapterId = '1';
 
   bool get isExpanded {
     return _isExpanded;
   }
 
-  PlayerBook? get book {
+  PlayerBook get book {
     return _book;
   }
 
@@ -67,8 +64,8 @@ class PlayerProvider with ChangeNotifier {
     return _speed;
   }
 
-  PlayerBookChapter? get selectedChapter {
-    return _selectedChapter;
+  String get selectedChapterId {
+    return _selectedChapterId;
   }
 
   void expand() {
@@ -87,8 +84,7 @@ class PlayerProvider with ChangeNotifier {
   }
 
   void setChapter({required String id}) {
-    _selectedChapter =
-        _book!.chapters.singleWhere((chapter) => chapter.id == id);
+    _selectedChapterId = id;
     notifyListeners();
   }
 

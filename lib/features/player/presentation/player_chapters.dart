@@ -37,7 +37,7 @@ class PlayerChapters extends StatelessWidget {
         ),
         Consumer<PlayerProvider>(
           builder: (context, player, child) {
-            var chapters = player.book!.chapters;
+            var chapters = player.book.chapters;
 
             return Expanded(
               child: Material(
@@ -47,7 +47,7 @@ class PlayerChapters extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 12),
                   itemBuilder: (context, index) {
                     bool isSelected =
-                        player.selectedChapter!.id == chapters[index].id;
+                        player.selectedChapterId == chapters[index].id;
 
                     return InkResponse(
                       borderRadius: BorderRadius.circular(12),

@@ -31,14 +31,14 @@ class Miniplayer extends StatelessWidget {
               children: [
                 Marquee(
                   child: Text(
-                    player.book != null ? player.book!.title : '',
+                    player.book.title,
                     style: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Marquee(
                   child: Text(
-                    player.book != null ? player.book!.author : '',
+                    player.book.author,
                     style: const TextStyle(
                         fontSize: 14,
                         color: ColorPallete.playerAuthorTextColor),

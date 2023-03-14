@@ -59,7 +59,7 @@ class Player extends StatelessWidget {
               flex: 4,
               child: Marquee(
                   child: Text(
-                player.book != null ? player.book!.title : '',
+                player.book.title,
                 style:
                     const TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
               )),
@@ -71,7 +71,7 @@ class Player extends StatelessWidget {
             Expanded(
               flex: 4,
               child: Marquee(
-                  child: Text(player.book != null ? player.book!.author : '',
+                  child: Text(player.book.author,
                       style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
